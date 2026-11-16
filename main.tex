@@ -16,7 +16,7 @@
 \usepackage[capitalise,nameinlink,noabbrev]{cleveref}
 \definecolor{linkblue}{RGB}{22,68,105}
 \hypersetup{colorlinks=true,linkcolor=linkblue,citecolor=linkblue,urlcolor=linkblue,
-  pdftitle={Entropy concavity for at most six positively weighted Bernoulli variables},
+  pdftitle={Entropy concavity for four, five and six positively weighted Bernoulli variables},
   pdfauthor={Yitzchak Shmalo},
   pdfsubject={Shannon entropy, weighted Bernoulli sums, exact certificates}}
 \urlstyle{same}
@@ -44,7 +44,7 @@
 \fancyfoot[C]{\thepage}
 \renewcommand{\headrulewidth}{0.4pt}
 
-\title{Entropy concavity for at most six positively weighted Bernoulli variables}
+\title{Entropy concavity for four, five and six positively weighted Bernoulli variables}
 \author{Yitzchak Shmalo\\[0.4em]
 \small Einstein Institute of Mathematics, The Hebrew University of Jerusalem\\
 \small Givat Ram, Jerusalem, Israel}
@@ -55,7 +55,7 @@
 \thispagestyle{fancy}
 
 \begin{abstract}
-J\"org Neunh\"auserer conjectures that a family of recursively overlapped Bernoulli distributions has entropy concave in its parameter. Amir asks more generally whether the entropy of a positively weighted sum of independent Bernoulli$(p)$ variables is concave in $p$, and proves this for at most three summands. We prove strict concavity for four, five and six summands. The entropy depends on the weights only through their entropy profile, the numbers of subsets of each size attaining each value of the sum. Integer weights with the same subset-sum coincidences exist; there are 23, 216 and 6,767 entropy profiles for four, five and six summands, the last via subset-sum relations. Exact rational Bernstein enclosures prove negative curvature for each profile away from the endpoints, where an analytic estimate applies. We find the curvature's leading term at the endpoints for any number of summands, and bound it near them for three or more.
+J\"org Neunh\"auserer conjectures that recursively overlapped Bernoulli distributions have entropy concave in their parameter. Amir asks more generally whether the entropy of a positively weighted sum of independent Bernoulli$(p)$ variables is concave in $p$, and proves this for at most three summands. We prove strict concavity for four, five and six summands. The entropy depends on the weights only through their entropy profile, the numbers of subsets of each size attaining each value of the sum. Every positive weight vector has an integer one with the same equalities and inequalities among subset sums, giving 23, 216 and 6,767 entropy profiles for four, five and six summands. Exact rational Bernstein enclosures prove negative curvature for each profile away from the endpoints, where an analytic estimate applies. We find the curvature's leading term at the endpoints for any number of summands, and bound it near them for three or more.
 \end{abstract}
 
 \noindent\textit{Keywords:} Shannon entropy, weighted Bernoulli sums, entropy concavity, subset sums, rational certificates.\\
@@ -72,7 +72,7 @@ The positive-weight concavity question asks whether $F_w$ is concave for every $
 
 J\"org Neunh\"auserer~\cite{Neun} poses an entropy-concavity conjecture for finite distributions constructed by repeatedly placing two scaled copies of a probability vector with an overlap. The construction interpolates between a binomial law and a Bernoulli product law; its motivation includes random walks on self-similar graphs. Amir~\cite{Amir} gives the positive-weight formulation~\eqref{eq:sum}: the shifts between successive embeddings become the weights of independent bits. Integer weights include the recursive construction, and arbitrary positive real weights give a natural extension. Neunh\"auserer~\cite[Proposition~3.1]{Neun} treats the binomial and nonoverlapping extremes.
 
-Precisely, let $(a_n)$ be a strictly increasing sequence of integers with $a_1=2$, put $P_1(p)=(p,1-p)$ and $P_{n+1}(p)=pL(P_n(p))+(1-p)R(P_n(p))$, where $L$ and $R$ place a vector of length $a_n$ at the left and at the right end of a vector of length $a_{n+1}$. Neunh\"auserer~\cite[Conjecture~3.1]{Neun} conjectures that the entropy of $P_n(p)$ is concave in $p\in[0,1]$ for every such sequence and every $n$. The law $P_n(p)$ is that of $\sum_{i=1}^n d_iB_i$ with $d_1=1$, $d_i=a_i-a_{i-1}$ and independent Bernoulli$(1-p)$ variables $B_i$. Since $p\mapsto1-p$ preserves concavity, the conjecture for a given $n$ is the positive-weight concavity question with $m=n$ and integer weights.
+Precisely, let $(a_n)$ be a strictly increasing sequence of integers with $a_1=2$, put $P_1(p)=(p,1-p)$ and $P_{n+1}(p)=p\mathcal L(P_n(p))+(1-p)\mathcal R(P_n(p))$, where $\mathcal L$ and $\mathcal R$ place a vector of length $a_n$ at the left and at the right end of a vector of length $a_{n+1}$. Neunh\"auserer~\cite[Conjecture~3.1]{Neun} conjectures that the entropy of $P_n(p)$ is concave in $p\in[0,1]$ for every such sequence and every $n$. The law $P_n(p)$ is that of $\sum_{i=1}^n d_iB_i$ with $d_1=1$, $d_i=a_i-a_{i-1}$ and independent Bernoulli$(1-p)$ variables $B_i$. Since $p\mapsto1-p$ preserves concavity, the conjecture for a given $n$ is the case $m=n$ of the positive-weight concavity question for integer weights one of which equals $1$.
 
 Amir~\cite{Amir} proves that $F_w$ is strictly concave for $m\le3$; the case $m=1$ is the binary entropy function. For $m=4$ he sorts weight vectors by which subset sums coincide, which up to permutation of the weights gives $23$ classes, checks all of them numerically and proves seven analytically. Three things stand in the way of continuing this case analysis. The weights are real, and rounding them can separate subset sums that are equal, which changes the law of $S_w$. The number of cases grows: $F_w$ depends on $w$ only through its entropy profile, the multiset of vectors $(N_{s,0},\ldots,N_{s,m})$, one for each value $s$ of $S_w$, where $N_{s,k}$ is the number of $k$-element subsets of the weights with sum $s$, and there are $23$ entropy profiles for $m=4$, in bijection with Amir's classes, $216$ for $m=5$ and $6{,}767$ for $m=6$. And interval enclosures of $F_w''$ need a positive lower bound for the probability of every value $s$ of $S_w(p)$, and for $s\ne0$ this probability vanishes at $p=0$; indeed $pF_w''(p)\to-m$ as $p\downarrow0$ (\cref{thm:limit}).
 
@@ -80,7 +80,7 @@ The first obstruction is removed by a vertex of the polyhedron cut out by the si
 \[
  pF_w''(p)\le 4m^2(m-1)\,p\log\frac1p-(1-p)^{m-3}(1-mp)^2\qquad\Bigl(0<p\le\frac12\Bigr),
 \]
-so that $F_w''(p)<-1/(2p)$ for $0<p\le1/(64m^4)$ (\cref{thm:allendpoint}). Together with Amir's cases, the following theorem settles Neunh\"auserer's recursive-overlap conjecture through six summands.
+so that $F_w''(p)<-1/(2p)$ for $0<p\le1/(64m^4)$ (\cref{thm:allendpoint}). For $m=4,5,6$ the same estimate gives $F_w''<0$ on $(0,\delta_m]$ (\cref{cor:endpoint}). Together with Amir's answer~\cite{Amir} for at most three summands, the following theorem gives Neunh\"auserer's conjecture for at most six summands.
 
 \begin{theorem}\label{thm:main}
 Let $m\in\{4,5,6\}$ and let $w_1,\ldots,w_m$ be positive real numbers. If $B_1,\ldots,B_m$ are independent Bernoulli$(p)$ random variables, then
@@ -137,9 +137,9 @@ In particular, $v$ and $w$ have the same entropy profile.
 \end{lemma}
 
 \begin{proof}
-Every difference of subset indicators is a vector in $\{-1,0,1\}^m$, and every vector in that set is such a difference. For each nonzero vector $a$ with $a\cdot w=0$, impose $a\cdot x=0$. For each other nonzero $a$, choose its sign so that $a\cdot w>0$ and impose $a\cdot x\ge1$. Also impose $x_i\ge1$ for every $i$. Let $P$ be the resulting polyhedron. There are only finitely many constraints. A sufficiently large positive multiple of $w$ belongs to $P$, so $P$ is nonempty.
+Every difference of subset indicators is a vector in $\{-1,0,1\}^m$, and every vector in that set is such a difference. For each nonzero vector $a$ with $a\cdot w=0$, impose $a\cdot x=0$. For each other nonzero $a$, choose its sign so that $a\cdot w>0$ and impose $a\cdot x\ge1$. Also impose $x_i\ge1$ for every $i$. Let $\mathcal Q$ be the resulting polyhedron. There are only finitely many constraints. A sufficiently large positive multiple of $w$ belongs to $\mathcal Q$, so $\mathcal Q$ is nonempty.
 
-Minimize $\sum_i x_i$ over $P$. A nonempty sublevel set is closed and bounded because $x_i\ge1$, hence compact. The minimum is attained, and its minimizing face is nonempty and compact. Choose an extreme point $x^*$ of this face. If $x^*$ were a nontrivial convex combination of two points of $P$, minimality would force both points into the minimizing face. Thus $x^*$ is a vertex of $P$.
+Minimize $\sum_i x_i$ over $\mathcal Q$. A nonempty sublevel set is closed and bounded because $x_i\ge1$, hence compact. The minimum is attained, and its minimizing face is nonempty and compact. Choose an extreme point $x^*$ of this face. If $x^*$ were a nontrivial convex combination of two points of $\mathcal Q$, minimality would force both points into the minimizing face. Thus $x^*$ is a vertex of $\mathcal Q$.
 
 The normals of the equalities and the inequalities tight at $x^*$ span $\R^m$. Otherwise a nonzero vector orthogonal to all those normals would permit sufficiently small perturbations of $x^*$ in both directions, preserving the equalities, tight inequalities and all the finitely many slack inequalities. This would contradict extremality. Select $m$ independent tight constraints, and write them as $Gx^*=b$. The entries of $G$ lie in $\{-1,0,1\}$, the entries of $b$ lie in $\{0,1\}$, and $D:=\det G$ is a nonzero integer.
 
@@ -226,17 +226,17 @@ For subsets $A,C\subseteq[m]$ with indicator vectors $\mathbf 1_A,\mathbf 1_C$, 
 For a feasible space $L$ spanned by ternary normals, the positive part of $L^\perp$ is nonempty and relatively open. For $a\in T_m\setminus L$, the hyperplane $a^\perp\cap L^\perp$ is proper. Avoiding these finitely many hyperplanes gives a positive vector with exactly the relations in $L$. A chain of ternary normals forming a basis of $L$ reaches $L$; each intermediate orthogonal complement contains the same positive vector. Finally, coordinate permutations preserve the set of ternary normals, feasibility and subset cardinalities. Extending one representative by every ternary normal therefore reaches every successor orbit.
 \end{proof}
 
-A rank-$r$ space is represented by the maximal minors $P_I$ of an integer row basis, indexed by the $r$-element coordinate subsets. Divide by their common divisor and orient so that the first nonzero coordinate is positive. These primitive exterior coordinates determine the row space; rank zero has the single coordinate $1$. Adjoining a normal takes an exterior product. A zero product means that the normal already belongs to the space. Coordinate permutations act by signed permutations of the minors. The least oriented vector in lexicographic order is the orbit representative. The maximum absolute primitive coordinates at ranks zero through five are $1,1,2,4,12,30$. The enumerator checks that each retained coordinate has magnitude at most $30$ before extending it. An unnormalized extension is a sum of at most six such coordinates and hence has magnitude at most $180$. Profile coefficients are at most $\binom6k\le20$, so base-$64$ packing has no carries and fits in an unsigned $64$-bit integer.
+A rank-${\varrho}$ space is represented by the maximal minors $P_I$ of an integer row basis, indexed by the ${\varrho}$-element coordinate subsets. Divide by their common divisor and orient so that the first nonzero coordinate is positive. These primitive exterior coordinates determine the row space; rank zero has the single coordinate $1$. Adjoining a normal takes an exterior product. A zero product means that the normal already belongs to the space. Coordinate permutations act by signed permutations of the minors. The least oriented vector in lexicographic order is the orbit representative. The maximum absolute primitive coordinates at ranks zero through five are $1,1,2,4,12,30$. The enumerator checks that each retained coordinate has magnitude at most $30$ before extending it. An unnormalized extension is a sum of at most six such coordinates and hence has magnitude at most $180$. Profile coefficients are at most $\binom6k\le20$, so base-$64$ packing has no carries and fits in an unsigned $64$-bit integer.
 
 \begin{lemma}\label{lem:positive}
-Let $L\subseteq\R^m$ have rank $r<m$, with maximal minors $P_I$ of a row basis. For each ordered coordinate set $J=\{j_0<\cdots<j_r\}$, form the vector supported on $J$ whose entries are
+Let $L\subseteq\R^m$ have rank ${\varrho}<m$, with maximal minors $P_I$ of a row basis. For each ordered coordinate set $J=\{j_0<\cdots<j_{\varrho}\}$, form the vector supported on $J$ whose entries are
 \[
- \kappa_{j_h}=(-1)^hP_{J\setminus\{j_h\}}\quad(0\le h\le r).
+ \kappa_{j_h}=(-1)^hP_{J\setminus\{j_h\}}\quad(0\le h\le\varrho).
 \]
 Retain each nonzero vector whose entries have one sign, oriented nonnegatively. Then $L^\perp$ contains a strictly positive vector if and only if the retained supports cover all coordinates. If it does, the retained vectors span $L^\perp$.
 \end{lemma}
 \begin{proof}
-Cofactor expansion puts every listed vector in $L^\perp$. Let $K=L^\perp\cap[0,\infty)^m$. It is a pointed polyhedral cone. Intersecting with $\sum_i x_i=1$ shows that it is generated by its extreme rays. For an extreme ray with support $S$, the corresponding columns of a row basis have rank $|S|-1$: lower rank would permit a nonproportional supported perturbation in both directions, and higher rank would leave no nonzero supported kernel vector. Extend these columns to rank $r$ using $r-|S|+1$ further columns. On the resulting $r+1$ columns, the kernel is one-dimensional. The cofactor vector is nonzero, agrees with the ray on $S$ up to scale, and is zero on the added columns. Thus the retained list contains every extreme ray.
+Cofactor expansion puts every listed vector in $L^\perp$. Let $K=L^\perp\cap[0,\infty)^m$. It is a pointed polyhedral cone. Intersecting with $\sum_i x_i=1$ shows that it is generated by its extreme rays. For an extreme ray with support $S$, the corresponding columns of a row basis have rank $|S|-1$: lower rank would permit a nonproportional supported perturbation in both directions, and higher rank would leave no nonzero supported kernel vector. Extend these columns to rank ${\varrho}$ using ${\varrho}-|S|+1$ further columns. On the resulting ${\varrho}+1$ columns, the kernel is one-dimensional. The cofactor vector is nonzero, agrees with the ray on $S$ up to scale, and is zero on the added columns. Thus the retained list contains every extreme ray.
 
 A strictly positive vector in $K$ implies that every coordinate occurs in some extreme ray. Conversely, summing the retained nonnegative vectors gives a strictly positive vector when their supports cover. If $x>0$ belongs to $K$, then $x+\eps y\in K$ for every $y\in L^\perp$ and sufficiently small $\eps>0$. Hence $K$ spans $L^\perp$, as does its list of rays.
 \end{proof}
@@ -422,7 +422,7 @@ This identity follows from $\binom dk\binom kj=\binom dj\binom{d-j}{k-j}$ and th
 Fix $m\in\{4,5,6\}$ and a positive real vector $w$. For $m=4,5$, \cref{lem:representative} and the bounded enumeration show that the entropy profile of $w$ is one of the profiles counted in \cref{tab:profiles}. For $m=6$, \cref{prop:sixprofiles} shows that it is one of the profiles counted in \cref{tab:six}. The vector that realizes this profile in the enumeration has the same probability multiset in~\eqref{eq:counts} as $w$ for all $p$, hence the same entropy function.
 By \cref{cor:endpoint}, $F_w''<0$ on $(0,\delta_m]$. By \cref{prop:certificates}, $F_w''<0$ on $[\delta_m,1/2]$. Complement symmetry~\eqref{eq:symmetry} gives $F_w''<0$ on $(0,1)$.
 
-A continuous function on $[0,1]$ with strictly negative second derivative on $(0,1)$ is strictly concave on the closed interval. To see the endpoint assertion explicitly, fix $0\le x<y\le1$ and subtract the affine function joining $(x,F_w(x))$ and $(y,F_w(y))$. The resulting function $g$ vanishes at $x,y$ and has $g''<0$ on $(x,y)$. Concavity on interior compact intervals, followed by continuity, gives $g\ge0$. If $g$ vanished at an interior point, its derivative would vanish there at a local minimum, contradicting $g''<0$. Thus $g>0$ throughout $(x,y)$, as required.
+A continuous function on $[0,1]$ with strictly negative second derivative on $(0,1)$ is strictly concave on the closed interval.
 \end{proof}
 
 \section{Endpoint and block results in every dimension}\label{sec:allm}
@@ -527,7 +527,7 @@ For $n=1$ the derivative is $h''=-1/[p(1-p)]$. Summing over the blocks proves st
 \end{proof}
 
 \begin{remark}\label{rem:hypotheses}
-Without any one of the hypotheses of \cref{thm:main} the conclusion can fail: concavity fails for a general Boolean statistic of the bits, for unequal parameters, and for dependent bits with equal marginals. The indicator that four iid Bernoulli$(p)$ bits are all equal has success probability $p^4+(1-p)^4$. At $p=1/2$ this probability and its first two derivatives are $1/8$, $0$, $6$, so its entropy curvature is $6\log7>0$. Thus a general Boolean statistic need not have concave entropy.
+The conclusion fails for a general Boolean statistic of the bits, for unequal parameters and for dependent bits with equal marginals. The indicator that four iid Bernoulli$(p)$ bits are all equal has success probability $p^4+(1-p)^4$. At $p=1/2$ this probability and its first two derivatives are $1/8$, $0$, $6$, so its entropy curvature is $6\log7>0$. Thus a general Boolean statistic need not have concave entropy.
 
 The heterogeneous example of the MathOverflow user ssss nnnn, given in a comment on Amir's answer and recorded there~\cite{Amir}, has weights $(1,1,2)$ and parameters $(1/5+t,1/5-t,1/2)$. The probabilities at support values $0,1,2,3,4$ are
 \[
@@ -606,12 +606,12 @@ $M_m$ & integer coordinate bound $\lfloor m^{m/2}\rfloor$ & \cref{lem:representa
 $C$ & a second subset of $[m]$ & \cref{lem:representative}\\
 $\sgn$ & sign, with $\sgn(0)=0$ & \cref{lem:representative}\\
 $a,x$ & nonzero vector of $\{-1,0,1\}^m$ and feasible real vector & proof of \cref{lem:representative}\\
-$P,x^*$ & feasible polyhedron and a minimizing vertex & proof of \cref{lem:representative}\\
+$\mathcal Q,x^*$ & feasible polyhedron and a minimizing vertex & proof of \cref{lem:representative}\\
 $b,D$ & right side of the tight constraints and $\det G$ & proof of \cref{lem:representative}\\
 $G$, $G_i$ & matrix of $m$ independent tight constraints; $G$ with column $i$ replaced by $b$ & proof of \cref{lem:representative}\\
 $T_m$ & set of ternary normals, one mixed-sign vector per sign pair & \cref{sec:six}\\
 $L(w),L$ & relation space and a feasible such space & \cref{sec:six}\\
-$r,P_I$ & relation-space rank and primitive maximal minors & \cref{sec:six}\\
+$\varrho,P_I$ & relation-space rank and primitive maximal minors & \cref{sec:six}\\
 $J,j_h,\kappa$ & coordinate set, its elements and cofactor kernel vector & \cref{lem:positive}\\
 $K$ & nonnegative kernel cone & proof of \cref{lem:positive}\\
 $\mu_p$ & product law on the Boolean cube & proof of \cref{lem:endpoint}\\
@@ -631,7 +631,6 @@ $e_-,e_+$ & lower and upper second-derivative enclosures & \cref{sec:partitions}
 $\lambda_-,\lambda_+$ & lower and upper logarithm enclosures & \cref{sec:partitions}\\
 $T_-,V_-$ & lower bounds for $q_s''\log q_s$ and $(q_s')^2$ & \cref{sec:partitions}\\
 $U_I$ & rational upper bound for entropy curvature on $I$ & \cref{sec:partitions}\\
-$x,y,g$ & chord endpoints and entropy minus its chord & \cref{sec:proof}\\
 $t$ & perturbation parameter in the counterexamples & \cref{rem:hypotheses}\\
 $\eta_m$ & all-dimension endpoint cutoff $1/(64m^4)$ & \cref{thm:allendpoint}\\
 $k_s,c_s$ & minimum fibre cardinality and leading count & proof of \cref{thm:limit}\\
