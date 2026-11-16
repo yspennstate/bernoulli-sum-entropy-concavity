@@ -1,0 +1,28 @@
+rank=0 orbits=1 profiles=1 seconds=0.00791883
+rank=1 orbits=9 profiles=10 seconds=0.0244414
+rank=2 orbits=117 profiles=76 seconds=0.181311
+progress rank=3 done=1000 / 1593 next=9972
+rank=3 orbits=1593 profiles=556 seconds=1.31057
+progress rank=4 done=1000 / 10334 next=6261
+progress rank=4 done=2000 / 10334 next=7855
+progress rank=4 done=3000 / 10334 next=9772
+progress rank=4 done=4000 / 10334 next=10139
+progress rank=4 done=5000 / 10334 next=10331
+progress rank=4 done=6000 / 10334 next=10678
+progress rank=4 done=7000 / 10334 next=10807
+progress rank=4 done=8000 / 10334 next=11087
+progress rank=4 done=9000 / 10334 next=11216
+progress rank=4 done=10000 / 10334 next=11219
+rank=4 orbits=10334 profiles=2948 seconds=4.08494
+progress rank=5 done=1000 / 11219 next=0
+progress rank=5 done=2000 / 11219 next=0
+progress rank=5 done=3000 / 11219 next=0
+progress rank=5 done=4000 / 11219 next=0
+progress rank=5 done=5000 / 11219 next=0
+progress rank=5 done=6000 / 11219 next=0
+progress rank=5 done=7000 / 11219 next=0
+progress rank=5 done=8000 / 11219 next=0
+progress rank=5 done=9000 / 11219 next=0
+progress rank=5 done=10000 / 11219 next=0
+progress rank=5 done=11000 / 11219 next=0
+rank=5 orbits=11219 profiles=6767 seconds=4.19563

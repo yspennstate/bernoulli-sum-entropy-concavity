@@ -1,0 +1,683 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage[margin=27mm,headheight=14pt]{geometry}
+\usepackage{microtype}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{xurl}
+\usepackage{hyperref}
+\usepackage{bookmark}
+\usepackage[capitalise,nameinlink,noabbrev]{cleveref}
+\definecolor{linkblue}{RGB}{22,68,105}
+\hypersetup{colorlinks=true,linkcolor=linkblue,citecolor=linkblue,urlcolor=linkblue,
+  pdftitle={Entropy concavity for at most six positively weighted Bernoulli variables},
+  pdfauthor={Yitzchak Shmalo},
+  pdfsubject={Shannon entropy, weighted Bernoulli sums, exact certificates}}
+\urlstyle{same}
+\setlength{\parindent}{1.2em}
+\setlength{\parskip}{0.2em}
+\setlength{\emergencystretch}{1.5em}
+\setlist[enumerate]{itemsep=0.35em,topsep=0.45em}
+\numberwithin{equation}{section}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\Pp}{\mathbb P}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\R}{\mathbb R}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\sgn}{\operatorname{sgn}}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small Weighted Bernoulli entropy}
+\fancyhead[R]{\small 16 November 2026}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+
+\title{Entropy concavity for at most six positively weighted Bernoulli variables}
+\author{Yitzchak Shmalo\\[0.4em]
+\small Einstein Institute of Mathematics, The Hebrew University of Jerusalem\\
+\small Givat Ram, Jerusalem, Israel}
+\date{16 November 2026}
+
+\begin{document}
+\maketitle
+\thispagestyle{fancy}
+
+\begin{abstract}
+J\"org Neunh\"auserer conjectures that a family of recursively overlapped Bernoulli distributions has concave entropy. In Amir's formulation it asks whether the Shannon entropy of a sum of independent Bernoulli$(p)$ variables with positive real weights is concave in $p$; Amir proves this for at most three summands. We prove strict concavity for four, five and six summands. The entropy depends on the weights only through their entropy profile, which records which subset sums coincide. An integer-weight argument of Muroga type keeps every coincidence; there are 23, 216 and 6,767 entropy profiles for four, five and six summands, and for six summands they are enumerated through the spaces of subset-sum relations. Exact rational Bernstein enclosures prove negative curvature for each profile away from the endpoints, where an analytic estimate applies. For every number of summands we also bound the curvature near the endpoints and find its leading term.
+\end{abstract}
+
+\noindent\textit{Keywords:} Shannon entropy, weighted Bernoulli sums, entropy concavity, subset sums, rational certificates.\\
+\textit{2020 Mathematics Subject Classification:} 60C05, 94A17, 65G20.
+
+\section{Introduction}\label{sec:intro}
+
+Let $m$ be a positive integer, let $w=(w_1,\ldots,w_m)$ have positive real coordinates, and let $B_1,\ldots,B_m$ be independent Bernoulli variables with the same parameter $p\in[0,1]$. Set
+\begin{equation}\label{eq:sum}
+ S_w(p)=\sum_{i=1}^m w_i B_i,\qquad F_w(p)=H(S_w(p)),
+\end{equation}
+where $H$ is Shannon entropy with natural logarithms~\cite{Shannon}.
+The question is whether $F_w$ is concave for every $m$ and every such $w$.
+
+J\"org Neunh\"auserer~\cite{Neun} poses an entropy-concavity conjecture for finite distributions constructed by repeatedly placing two scaled copies of a probability vector with an overlap. The construction interpolates between a binomial law and a Bernoulli product law; its motivation includes random walks on self-similar graphs. Amir~\cite{Amir} gives the positive-weight formulation~\eqref{eq:sum}: the shifts between successive embeddings become the weights of independent bits. Integer weights include the recursive construction, and arbitrary positive real weights give a natural extension. Neunh\"auserer~\cite[Proposition~3.1]{Neun} treats the binomial and nonoverlapping extremes.
+
+Amir~\cite{Amir} proves strict concavity for two and three summands and sorts the four-summand case by which subset sums of $w$ coincide; there are $23$ such collision patterns, all checked numerically and seven proved analytically. The case $m=1$ is the binary entropy function. The function $F_w$ depends on $w$ only through the multiset of vectors $(N_{s,0},\ldots,N_{s,m})$, one for each value $s$ of $S_w$, where $N_{s,k}$ is the number of $k$-element subsets of the weights with sum $s$. We call this multiset the entropy profile of $w$. Two difficulties stop a direct continuation of Amir's case analysis. The weights are real, and rounding them can separate subset sums that are equal, which changes the law of $S_w$. The number of entropy profiles also grows: $23$ for four summands, $216$ for five and $6{,}767$ for six. We reduce to integers without losing an equality. A vertex of the polyhedron cut out by the signs of all differences of two subset sums has coordinates bounded by Cramer's rule and Hadamard's inequality. Hence every positive $w$ has an integer vector $v$ with $1\le v_i\le\lfloor m^{m/2}\rfloor$ and the same sign for every such difference (\cref{lem:representative}); this follows the integer-weight method of Saburo Muroga, Iwao Toda and Satoru Takasu~\cite{MTT}, as described by Rocco Servedio~\cite{Servedio}. For six summands we enumerate, up to coordinate permutation, the linear spans of the relations $a\cdot w=0$ with $a\in\{-1,0,1\}^6$ whose orthogonal complement meets the open positive orthant; there are $23{,}273$ such orbits. On each entropy profile, exact rational Bernstein enclosures bound $F_w''$ above by a negative number on $[\delta_m,1/2]$, where $\delta_4=2^{-12}$, $\delta_5=2^{-14}$ and $\delta_6=2^{-15}$. Near $p=0$ the curvature is controlled by the probability that $S_w$ equals the smallest weight, a value attained only by single weights. For every $m\ge3$,
+\[
+ pF_w''(p)\le 4m^2(m-1)\,p\log\frac1p-(1-p)^{m-3}(1-mp)^2\qquad\Bigl(0<p\le\frac12\Bigr).
+\]
+This gives $F_w''(p)<-1/(2p)$ for $0<p\le1/(64m^4)$ (\cref{thm:allendpoint}), and $pF_w''(p)\to-m$ as $p\downarrow0$ (\cref{thm:limit}). Together with Amir's cases, the following theorem settles Neunh\"auserer's recursive-overlap conjecture through six summands.
+
+\begin{theorem}\label{thm:main}
+Let $m\in\{4,5,6\}$ and let $w_1,\ldots,w_m$ be positive real numbers. If $B_1,\ldots,B_m$ are independent Bernoulli$(p)$ random variables, then
+\[
+ p\longmapsto H\!\left(\sum_{i=1}^m w_i B_i\right)
+\]
+has strictly negative second derivative on $(0,1)$ and is strictly concave on $[0,1]$.
+\end{theorem}
+
+Lawrence Shepp and Ingram Olkin~\cite{SO} formulate the entropy-concavity problem for sums with unit weights. Erwan Hillion and Oliver Johnson~\cite{HJ} prove joint concavity in the individual Bernoulli parameters in that setting. Their theorem does not apply to integer weights: $w_iB_i$ with an integer $w_i>1$ is not a sum of $w_i$ independent unit bits. Jiange Li~\cite{Li} compares R\'enyi entropies of different orders for weighted Bernoulli sums. Haoran Wang~\cite{Wang} studies R\'enyi and Tsallis concavity for unit-weight sums. None of these results gives concavity of the Shannon entropy of a weighted sum in a common parameter.
+
+\Cref{lem:representative} keeps equalities as well as strict inequalities between subset sums; this is the change from the small-weight representation of Muroga, Toda and Takasu. The determinant bounds are those of the standard matrix theory of Roger Horn and Charles Johnson~\cite{Matrix}. For six summands, divisibility of sign-matrix determinants by $2^{m-1}$ lowers the coordinate bound to $192$ (\cref{cor:refinement}), but the nondecreasing vectors in $\{1,\ldots,192\}^6$ still number $\binom{197}{6}$, and the relation spaces replace the integer box. The hyperplanes $a\cdot w=0$ with $a\in\{-1,0,1\}^m$ form the arrangement of comparative probability theory: Ilya Chevyrev, Dominic Searles and Arkadii Slinko~\cite[Section~2.4]{CSS} describe it in the positive simplex, where weight vectors normalized to sum one lie. An entropy profile records only which of these hyperplanes contain $w$, so the relation spaces enumerated here are the orthogonal complements of the flats of that arrangement that meet the open positive orthant. The enclosures use Sergei Bernstein's polynomial basis and Paul de Casteljau's subdivision algorithm, as presented by Rida Farouki~\cite{Farouki}, together with rational bounds for the logarithm. Finally, \cref{thm:blocks} proves strict concavity in every dimension when the weights form blocks of equal weights whose block sums determine how many bits are taken from each block; it reduces to the binomial case (\cref{thm:blocks}).
+
+\section{Setup and notation}\label{sec:setup}
+
+Write $[m]=\{1,\ldots,m\}$ and let $\mathcal S_w$ be the finite set of subset sums of $w$. For $s\in\mathcal S_w$ and $0\le k\le m$, define
+\begin{equation}\label{eq:counts}
+ N_{s,k}=\#\left\{A\subseteq[m]: |A|=k,\ \sum_{i\in A}w_i=s\right\},
+ \qquad q_s(p)=\sum_{k=0}^m N_{s,k}p^k(1-p)^{m-k}.
+\end{equation}
+Thus, writing $\Pp$ for probability under the law of the independent bits, $q_s(p)=\Pp(S_w(p)=s)$ and
+\begin{equation}\label{eq:entropy}
+ F_w(p)=-\sum_{s\in\mathcal S_w}q_s(p)\log q_s(p),
+\end{equation}
+with $0\log0=0$. An \emph{entropy profile} is the multiset of vectors
+$(N_{s,0},\ldots,N_{s,m})$, one for each $s\in\mathcal S_w$.
+Equal vectors occur with their multiplicities. The multiset determines $F_w$ for every $p$, even though it does not retain the numerical locations of the support points. Weight vectors with different signs of subset-sum differences can have the same entropy profile. The four- and five-summand enumeration records entropy profiles directly. The six-summand enumeration first records relation spaces and then identifies equal entropy profiles.
+
+For $0<p<1$ all $q_s$ are positive, so differentiation gives
+\begin{equation}\label{eq:curvature}
+ F_w''(p)=-\sum_s q_s''(p)\log q_s(p)
+            -\sum_s\frac{(q_s'(p))^2}{q_s(p)}.
+\end{equation}
+Here $\sum_s q_s''=0$ removes the term $-\sum_s q_s''$ from the second derivative. Complementing every subset gives
+\begin{equation}\label{eq:symmetry}
+ q_s(p)=q_{W-s}(1-p),\qquad F_w(p)=F_w(1-p),
+ \qquad W=\sum_{i=1}^m w_i.
+\end{equation}
+The function $F_w$ is continuous on $[0,1]$, with $F_w(0)=F_w(1)=0$.
+
+\section{Finite integer representatives}\label{sec:finite}
+
+\begin{lemma}\label{lem:representative}
+For every integer $m\ge1$ and every $w\in\R^m$ with positive coordinates, there exists $v\in\Z^m$ such that
+\[
+ 1\le v_i\le M_m:=\lfloor m^{m/2}\rfloor\quad(1\le i\le m)
+\]
+and, for every two subsets $A,C\subseteq[m]$,
+\[
+ \sgn\!\left(\sum_{i\in A}v_i-\sum_{i\in C}v_i\right)
+ =\sgn\!\left(\sum_{i\in A}w_i-\sum_{i\in C}w_i\right).
+\]
+In particular, $v$ and $w$ have the same entropy profile.
+\end{lemma}
+
+\begin{proof}
+Every difference of subset indicators is a vector in $\{-1,0,1\}^m$, and every vector in that set is such a difference. For each nonzero vector $a$ with $a\cdot w=0$, impose $a\cdot x=0$. For each other nonzero $a$, choose its sign so that $a\cdot w>0$ and impose $a\cdot x\ge1$. Also impose $x_i\ge1$ for every $i$. Let $P$ be the resulting polyhedron. There are only finitely many constraints. A sufficiently large positive multiple of $w$ belongs to $P$, so $P$ is nonempty.
+
+Minimize $\sum_i x_i$ over $P$. A nonempty sublevel set is closed and bounded because $x_i\ge1$, hence compact. The minimum is attained, and its minimizing face is nonempty and compact. Choose an extreme point $x^*$ of this face. If $x^*$ were a nontrivial convex combination of two points of $P$, minimality would force both points into the minimizing face. Thus $x^*$ is a vertex of $P$.
+
+The normals of the equalities and the inequalities tight at $x^*$ span $\R^m$. Otherwise a nonzero vector orthogonal to all those normals would permit sufficiently small perturbations of $x^*$ in both directions, preserving the equalities, tight inequalities and all the finitely many slack inequalities. This would contradict extremality. Select $m$ independent tight constraints, and write them as $Ax^*=b$. The entries of $A$ lie in $\{-1,0,1\}$, the entries of $b$ lie in $\{0,1\}$, and $D:=\det A$ is a nonzero integer.
+
+Let $A_i$ be obtained from $A$ by replacing column $i$ with $b$. Cramer's rule gives
+\[
+ |D|x_i^*=\sgn(D)\det A_i.
+\]
+Every entry of $A_i$ still has absolute value at most $1$. Hadamard's bound therefore gives $|\det A_i|\le m^{m/2}$. Consequently $v:=|D|x^*$ has positive integer coordinates bounded by $M_m$.
+Every imposed equality remains zero after multiplication by $|D|$, and every imposed inequality has positive left side. Every comparison of two subset sums has the form $a\cdot x$ with $a\in\{-1,0,1\}^m$, so the signs agree. The equality relations identify exactly the same subsets in each fibre, preserving their cardinalities and hence the entropy profile.
+\end{proof}
+
+\begin{corollary}\label{cor:refinement}
+Every positive real vector of length six has a positive integer representative with coordinates at most $192$ preserving the signs of all subset-sum comparisons.
+\end{corollary}
+\begin{proof}
+Use the vertex and Cramer numerators in \cref{lem:representative}. Multilinearity, applied one entry at a time, bounds the absolute determinant of every matrix with entries in $[-1,1]$ by that of some sign matrix. For a sign matrix of order $m$, subtract its first row from the other $m-1$ rows. Each of those rows has even entries, so its determinant is divisible by $2^{m-1}$. At order six Hadamard's bound is $216$, and hence the determinant is at most
+\[
+ 32\lfloor216/32\rfloor=192.
+\]
+This bounds every Cramer numerator and proves the assertion.
+\end{proof}
+
+The bound $192$ uses only sign-determinant divisibility. The stronger determinant estimate of Ehlich and Wojtas~\cite{Ehlich,Wojtas} gives $160$ at order six and can be substituted in the same Cramer argument.
+
+Permutation of coordinates preserves the entropy profile. Therefore it suffices to enumerate nondecreasing integer vectors with coordinates between $1$ and $M_m$. Rational approximation alone would not justify this reduction: it can separate subsets whose sums are exactly equal.
+
+\section{Enumeration of entropy profiles}\label{sec:enumeration}
+
+For a fixed integer vector, enumerate all $2^m$ subsets and sort them by their integer sums. Within each group, count the subsets of each cardinality. Sort the resulting count vectors to obtain a canonical representation of the entropy profile. Exhausting the nondecreasing vectors gives \cref{tab:profiles}. The program \texttt{enumerate.cpp} prints the coordinate bound, the number of vectors, and the number of profiles in each row.
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{rrrr}
+\toprule
+$m$ & $M_m$ & integer vectors & entropy profiles\\
+\midrule
+$4$ & $16$ & $3{,}876$ & $23$\\
+$5$ & $55$ & $5{,}006{,}386$ & $216$\\
+\bottomrule
+\end{tabular}
+\caption{Complete bounded enumeration. The vector count is $\binom{M_m+m-1}{m}$.}\label{tab:profiles}
+\end{table}
+
+The C++ representation encodes a count vector as
+$\sum_{k=0}^m N_{s,k}64^k$. No carry occurs: at most $32$ subsets contribute to a fibre when $m\le5$. Thus sorting the integer encodings preserves the multiset exactly. The ordering of profiles is immaterial.
+
+A second enumeration, \texttt{enumerate\_python.py}, expands
+\begin{equation}\label{eq:polynomial}
+ \prod_{i=1}^m(1+X^{(m+1)v_i+1}).
+\end{equation}
+The coefficient of $X^{(m+1)s+k}$ equals $N_{s,k}$, since $0\le k\le m$. Division of an exponent by $m+1$ therefore recovers the sum and cardinality without ambiguity. This program prints the same vector and profile counts and checks equality of the full profile sets, rather than equality only of their sizes.
+
+\Cref{tab:four} lists one representative of each four-variable entropy profile. The program \texttt{summarize.py} prints these representatives and their support sizes, selecting the smallest coordinate sum and then lexicographic order within the bounded enumeration. The count $23$ agrees with Amir's classification~\cite{Amir}. For five variables, all $216$ profiles and their count vectors are included with the certificates.
+
+\begin{table}[ht]
+\centering\small
+\begin{tabular}{crcrcr}
+\toprule
+representative & support & representative & support & representative & support\\
+\midrule
+$(1,1,1,1)$ & $5$ & $(1,1,3,3)$ & $9$ & $(1,3,3,5)$ & $11$\\
+$(1,1,1,2)$ & $6$ & $(1,2,2,3)$ & $9$ & $(1,1,3,6)$ & $12$\\
+$(1,1,1,3)$ & $7$ & $(1,1,2,5)$ & $10$ & $(1,2,3,5)$ & $12$\\
+$(1,1,2,2)$ & $7$ & $(1,1,3,4)$ & $10$ & $(1,2,3,6)$ & $13$\\
+$(1,1,1,4)$ & $8$ & $(1,2,3,3)$ & $10$ & $(1,2,4,5)$ & $13$\\
+$(1,1,2,3)$ & $8$ & $(1,1,3,5)$ & $11$ & $(1,2,3,7)$ & $14$\\
+$(1,1,2,4)$ & $9$ & $(1,2,3,4)$ & $11$ & $(1,2,4,7)$ & $15$\\
+ & & & & $(1,3,5,7)$ & $15$\\
+ & & & & $(1,2,4,8)$ & $16$\\
+\bottomrule
+\end{tabular}
+\caption{The four-variable entropy profiles, represented by positive integer weights. The support column is $|\mathcal S_v|$.}\label{tab:four}
+\end{table}
+
+\section{Six summands: relation-space orbits}\label{sec:six}
+
+Let $T_m$ contain one of each pair $a,-a$ of mixed-sign vectors in $\{-1,0,1\}^m$; its elements are called ternary normals. For $w>0$ define its \emph{relation space}
+\[
+ L(w)=\operatorname{span}\{a\in T_m:a\cdot w=0\}.
+\]
+A relation space is called feasible if its orthogonal complement contains a vector with all coordinates strictly positive. Its rank is its dimension. For six coordinates, $T_6$ has
+$(3^6-2\cdot2^6+1)/2=301$ elements. The program \texttt{enumerate\_flats.cpp} prints this number and the orbit counts below; \texttt{summarize.py} prints their totals.
+
+\begin{lemma}\label{lem:relations}
+For every positive real vector $w$ of length $m$, its subset-sum equalities are determined by the feasible relation space $L(w)$, of rank at most $m-1$. Conversely, every feasible space spanned by ternary normals is the relation space of a positive real vector. Starting with the zero space and adjoining each ternary normal to every feasible space, discarding infeasible extensions, reaches every such space. Retaining one representative under coordinate permutations reaches every orbit.
+\end{lemma}
+\begin{proof}
+For subsets $A,C\subseteq[m]$ with indicator vectors $\mathbf 1_A,\mathbf 1_C$, the equality $\sum_{i\in A}w_i=\sum_{i\in C}w_i$ is equivalent to $\mathbf 1_A-\mathbf 1_C\in L(w)$. A nonzero difference that vanishes on a positive vector has both signs, so one orientation is a ternary normal; the reverse implication follows from $L(w)\subseteq w^\perp$.
+
+For a feasible space $L$ spanned by ternary normals, the positive part of $L^\perp$ is nonempty and relatively open. For $a\in T_m\setminus L$, the hyperplane $a^\perp\cap L^\perp$ is proper. Avoiding these finitely many hyperplanes gives a positive vector with exactly the relations in $L$. A chain of ternary normals forming a basis of $L$ reaches $L$; each intermediate orthogonal complement contains the same positive vector. Finally, coordinate permutations preserve the set of ternary normals, feasibility and subset cardinalities. Extending one representative by every ternary normal therefore reaches every successor orbit.
+\end{proof}
+
+A rank-$r$ space is represented by the maximal minors $P_I$ of an integer row basis, indexed by the $r$-element coordinate subsets. Divide by their common divisor and orient so that the first nonzero coordinate is positive. These primitive exterior coordinates determine the row space; rank zero has the single coordinate $1$. Adjoining a normal takes an exterior product. A zero product means that the normal already belongs to the space. Coordinate permutations act by signed permutations of the minors. The least oriented vector in lexicographic order is the orbit representative. The maximum absolute primitive coordinates at ranks zero through five are $1,1,2,4,12,30$, printed by \texttt{summarize.py}; the program \texttt{validate\_geometry.py} checks every maximal minor, ternary generation, positive kernel witness and entropy profile. The enumerator checks that each retained coordinate has magnitude at most $30$ before extending it. An unnormalized extension is a sum of at most six such coordinates and hence has magnitude at most $180$, safely within the signed integer type. Profile coefficients are at most $\binom6k\le20$, so base-$64$ packing has no carries and fits in an unsigned $64$-bit integer.
+
+\begin{lemma}\label{lem:positive}
+Let $L\subseteq\R^m$ have rank $r<m$, with maximal minors $P_I$ of a row basis. For each ordered coordinate set $J=\{j_0<\cdots<j_r\}$, form the vector supported on $J$ whose entries are
+\[
+ \kappa_{j_h}=(-1)^hP_{J\setminus\{j_h\}}\quad(0\le h\le r).
+\]
+Retain each nonzero vector whose entries have one sign, oriented nonnegatively. Then $L^\perp$ contains a strictly positive vector if and only if the retained supports cover all coordinates. If it does, the retained vectors span $L^\perp$.
+\end{lemma}
+\begin{proof}
+Cofactor expansion puts every listed vector in $L^\perp$. Let $K=L^\perp\cap[0,\infty)^m$. It is a pointed polyhedral cone. Intersecting with $\sum_i x_i=1$ shows that it is generated by its extreme rays. For an extreme ray with support $S$, the corresponding columns of a row basis have rank $|S|-1$: lower rank would permit a nonproportional supported perturbation in both directions, and higher rank would leave no nonzero supported kernel vector. Extend these columns to rank $r$ using $r-|S|+1$ further columns. On the resulting $r+1$ columns, the kernel is one-dimensional. The cofactor vector is nonzero, agrees with the ray on $S$ up to scale, and is zero on the added columns. Thus the retained list contains every extreme ray.
+
+A strictly positive vector in $K$ implies that every coordinate occurs in some extreme ray. Conversely, summing the retained nonnegative vectors gives a strictly positive vector when their supports cover. If $x>0$ belongs to $K$, then $x+\eps y\in K$ for every $y\in L^\perp$ and sufficiently small $\eps>0$. Hence $K$ spans $L^\perp$, as does its list of rays.
+\end{proof}
+
+Two Boolean vectors have equal weighted sums precisely when their scalar products with every retained ray agree. Grouping these scalar-product signatures, and recording subset cardinalities within each group, gives the entropy profile. The orbit enumeration yields \cref{tab:six}.
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{rrr}
+\toprule
+rank & feasible relation-space orbits & entropy profiles through this rank\\
+\midrule
+$0$ & $1$ & $1$\\
+$1$ & $9$ & $10$\\
+$2$ & $117$ & $76$\\
+$3$ & $1{,}593$ & $556$\\
+$4$ & $10{,}334$ & $2{,}948$\\
+$5$ & $11{,}219$ & $6{,}767$\\
+\bottomrule
+\end{tabular}
+\caption{The six-summand enumeration: $23{,}273$ feasible relation-space orbits and $6{,}767$ entropy profiles.}\label{tab:six}
+\end{table}
+
+\begin{proposition}\label{prop:sixprofiles}
+The sums of six independent Bernoulli$(p)$ variables with positive real weights have exactly $6{,}767$ entropy profiles. Each profile has a positive integer representative with coordinates at most $36$.
+\end{proposition}
+\begin{proof}
+The integer operations just described, implemented in \texttt{enumerate\_flats.cpp}, enumerate all feasible relation-space orbits by \cref{lem:relations,lem:positive}. They give \cref{tab:six}. Grouping signatures gives exactly the stated profile set. The supplied compact representatives have coordinates at most $36$; \texttt{verify\_six.py} reconstructs their subset-count generating polynomials and checks equality of their full profile set with the enumerated set. Thus each profile is realized by such a representative. A representative with coordinates at most $36$ has the same entropy profile as $w$; it need not have the same signs of subset-sum comparisons.
+\end{proof}
+
+The program \texttt{verify\_geometry.cpp} checks the orbit list by a different representation: each space is represented by its set of contained ternary normals, computed from a nullspace basis. It checks distinctness of the listed permutation orbits and closure under every feasible extension. For an absent normal, feasibility of the extension is equivalent to taking both signs on the old cone's nonnegative rays. Indeed, a positive kernel point is relatively interior to that cone; a nonzero one-sided functional cannot vanish there. If both signs occur, a positive base point can be adjusted by nonnegative ray combinations to balance the functional while remaining positive. Membership in the extended row space is equivalent to proportionality of nullspace projections. These tests check all $3{,}628{,}254$ candidate extensions from ranks zero through four, of which $717{,}239$ are feasible, counting repetitions. The program \texttt{summarize.py} also prints these totals. At four and five summands, the orbit enumeration gives the same full profile sets as the bounded integer enumeration.
+
+\section{Uniform endpoint bounds}\label{sec:endpoint}
+
+\begin{lemma}\label{lem:endpoint}
+Let $m\ge3$ and let $w\in\R^m$ have positive coordinates. For independent Bernoulli$(p)$ variables and $F_w(p)=H(\sum_i w_iB_i)$, one has, for $0<p\le1/2$,
+\begin{equation}\label{eq:endpoint}
+ pF_w''(p)\le4m^2(m-1)p\log(1/p)
+              -(1-p)^{m-3}(1-mp)^2.
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+The probability of every Boolean string is at least $p^m$ when $p\le1/2$. Every nonempty fibre contains such a string, so $p^m\le q_s(p)\le1$ and $|\log q_s(p)|\le m\log(1/p)$.
+
+Write the product law of the bits as
+\[
+ \mu_p=\bigotimes_{i=1}^m\bigl((1-p)\mathbf e_0+p\mathbf e_1\bigr),
+\]
+where $\mathbf e_j$ is the unit point mass at $j$. The second derivative of $\mu_p$ is a sum over $m(m-1)$ ordered pairs of distinct coordinates. Each summand has two factors $\mathbf e_1-\mathbf e_0$, each of $\ell^1$ norm $2$, and probability measures in the other factors. Its $\ell^1$ norm is $4$. Summing a signed measure over the fibres of a map cannot increase its $\ell^1$ norm. Therefore
+\begin{equation}\label{eq:norm}
+ \sum_s|q_s''(p)|\le4m(m-1),\qquad
+ \left|\sum_s q_s''(p)\log q_s(p)\right|
+ \le4m^2(m-1)\log(1/p).
+\end{equation}
+
+Let $w_{\min}=\min_i w_i$, attained $r\ge1$ times. A subset with at least two elements has sum at least $2w_{\min}>w_{\min}$, so the fibre at $w_{\min}$ consists exactly of these $r$ singleton subsets. Consequently
+\[
+ q_{w_{\min}}(p)=rp(1-p)^{m-1},\qquad
+ \frac{(q_{w_{\min}}'(p))^2}{q_{w_{\min}}(p)}
+ =\frac{r(1-p)^{m-3}(1-mp)^2}{p}.
+\]
+Use this one term in the nonnegative second sum of~\eqref{eq:curvature}, apply~\eqref{eq:norm}, and use $r\ge1$. This proves~\eqref{eq:endpoint}.
+\end{proof}
+
+\begin{corollary}\label{cor:endpoint}
+Write $F_w(p)=H(\sum_iw_iB_i)$ for independent Bernoulli$(p)$ variables.
+For every positive real weight vector of length four,
+$F_w''(p)<-3/(16p)$ on $0<p\le1/4096$. For every positive real weight vector of length five,
+$F_w''(p)<-1/(4p)$ on $0<p\le1/16384$.
+For every positive real weight vector of length six,
+$F_w''(p)<-1/(4p)$ on $0<p\le1/32768$.
+In each case, the reflected bound holds near $1$ with $p$ replaced by $1-p$.
+\end{corollary}
+
+\begin{proof}
+The function $p\log(1/p)$ increases on $(0,\delta_m]$, and $\log2<1$. On the same interval the subtracted term $(1-p)^{m-3}(1-mp)^2$ in~\eqref{eq:endpoint} is at least its value at $\delta_m$, because both of its factors are positive and decreasing there. For $m=4$,
+\[
+192\delta_4\log(1/\delta_4)<\frac9{16},\qquad
+(1-\delta_4)(1-4\delta_4)^2
+ =\frac{4285536255}{4294967296}>\frac34.
+\]
+For $m=5$,
+\[
+400\delta_5\log(1/\delta_5)<\frac{175}{512}<\frac12,\qquad
+(1-\delta_5)^2(1-5\delta_5)^2
+ =\frac{72004829826842649}{72057594037927936}>\frac34.
+\]
+For $m=6$,
+\[
+720\delta_6\log(1/\delta_6)<\frac{675}{2048}<\frac12,\qquad
+(1-\delta_6)^3(1-6\delta_6)^2
+=\frac{9440410169765069258743}{9444732965739290427392}>\frac34.
+\]
+Substitution proves the bounds; \eqref{eq:symmetry} gives their reflections. The program \texttt{replay.py} prints and checks the four- and five-summand endpoint constants; \texttt{replay\_six.py} does so for six summands.
+\end{proof}
+
+\section{Rational certificates on the remaining interval}\label{sec:certificates}
+
+\subsection{Polynomial enclosures}\label{sec:bernstein}
+
+For a polynomial $f$ of degree at most $d$, write
+\begin{equation}\label{eq:bernstein}
+ f(p)=\sum_{k=0}^d c_k\binom dk p^k(1-p)^{d-k}.
+\end{equation}
+On $[0,1]$ the Bernstein basis functions are nonnegative and sum to $1$, so $\min_k c_k\le f\le\max_k c_k$. The coefficients of the derivative in degree $d-1$ are $d(c_{k+1}-c_k)$. In particular, the degree-$m$ coefficients of $q_s$ are $N_{s,k}/\binom mk$.
+
+For rational $\alpha,\beta$ with $0<\alpha<\beta\le1/2$, de Casteljau subdivision restricts~\eqref{eq:bernstein} to $I=[\alpha,\beta]$ with rational coefficients. One split at $\alpha$ gives the restriction to $[\alpha,1]$, and a second split at $(\beta-\alpha)/(1-\alpha)$ gives the restriction to $I$. At a split parameter $t$, the coefficient recursion is
+\[
+ c_j^{(0)}=c_j,\qquad
+ c_j^{(h+1)}=(1-t)c_j^{(h)}+t c_{j+1}^{(h)}.
+\]
+The left boundary of this triangular array and the reversed right boundary are the two sets of restricted coefficients. Applying the convex-hull bound to the restrictions of $q_s,q_s',q_s''$ gives rational enclosures on $I$.
+
+For completeness, the restriction identity also follows directly from the polar form. Its $j$th coefficient on $[\alpha,\beta]$ is
+\begin{equation}\label{eq:polar}
+ \sum_{k=0}^{d-j}\sum_{\ell=0}^j
+ c_{k+\ell}\binom{d-j}{k}\alpha^k(1-\alpha)^{d-j-k}
+ \binom j\ell\beta^\ell(1-\beta)^{j-\ell}.
+\end{equation}
+Indeed, choose $d$ independent bits, $d-j$ with success probability $\alpha$ and $j$ with success probability $\beta$, and average $c_k$ at their total number of successes. Multiaffinity and symmetry give the polar form of~\eqref{eq:bernstein}. If each argument is instead a mixture $(1-t)\alpha+t\beta$, grouping by the number of choices of $\beta$ yields~\eqref{eq:bernstein} on the restricted interval. This proves~\eqref{eq:polar} and the subdivision identity. The generators use subdivision; the four- and five-summand replayer evaluates~\eqref{eq:polar} directly.
+
+\subsection{Rational logarithm bounds}\label{sec:logs}
+
+For rational $x>0$, choose an integer $\nu$ such that $x=2^\nu y$ and $1\le y<2$. Put $z=(y-1)/(y+1)$. For an integer $N\ge1$, define
+\begin{equation}\label{eq:log}
+ L_N(y)=2\sum_{j=0}^{N-1}\frac{z^{2j+1}}{2j+1},\qquad
+ E_N(y)=\frac{2z^{2N+1}}{(2N+1)(1-z^2)}.
+\end{equation}
+Expanding $2\int_0^z(1-u^2)^{-1}\,du$ and bounding the remaining positive series gives
+\[
+ L_N(y)\le\log y\le L_N(y)+E_N(y).
+\]
+Here $0\le z<1/3$. The same formula at $y=2$, where $z=1/3$, encloses $\log2$. Adding $\nu\log2$, with interval endpoints reversed for this product when $\nu<0$, encloses $\log x$. Every operation is rational. The generator uses $N=14$, and the replayer uses $N=18$.
+
+\subsection{Curvature bounds and the complete partitions}\label{sec:partitions}
+
+Suppose that the polynomial enclosures on $I$ are
+\[
+ q_s\in[q_-,q_+],\quad q_s'\in[d_-,d_+],\quad
+ q_s''\in[e_-,e_+],\qquad q_->0,
+\]
+and that the rational logarithm bounds of \cref{sec:logs} give rational numbers $\lambda_-\le\lambda_+$ with $\log q_s\in[\lambda_-,\lambda_+]$.
+Set
+\begin{align*}
+ T_-&=\min\{e_-\lambda_-,e_-\lambda_+,e_+\lambda_-,e_+\lambda_+\},\\
+ V_-&=\begin{cases}0,&d_-\le0\le d_+,\\
+ \min\{d_-^2,d_+^2\},&\text{otherwise}.
+ \end{cases}
+\end{align*}
+The contribution of this fibre to~\eqref{eq:curvature} is at most $-T_--V_-/q_+$. Let $U_I$ denote the sum of these bounds over all fibres; it is a rational number with $F_w''(p)\le U_I$ for every $p\in I$. If a positive lower bound for some $q_s$ is unavailable, subdivide the cell.
+
+Starting at $[\delta_m,1/2]$, bisect a cell until $U_I$ rounded upward to a multiple of $10^{-6}$ is strictly negative. For six summands, round each fibre's contribution upward to a multiple of $2^{-40}$ before summing, and then round the sum upward to a multiple of $10^{-6}$. Both roundings preserve the upper inequality. Each accepted cell stores its rational endpoints and its strictly negative rounded upper bound. The programs \texttt{certify.py} and \texttt{certify\_six.py} print the profile counts, cell counts, and largest stored upper bounds in \cref{tab:certificates}. The program \texttt{replay.py} performs these checks for four and five summands; \texttt{replay\_six.py} does so for six summands. Each reconstructs the representative profiles, verifies every stored bound, and checks that every partition is consecutive, without gaps, from $\delta_m$ to $1/2$.
+
+\begin{proposition}\label{prop:certificates}
+For each entropy profile of a sum of four independent Bernoulli$(p)$ variables with positive real weights, there is a partition of $[1/4096,1/2]$ into closed rational cells and, for each cell $I$, a rational number $U_I<0$ with $F_w''(p)\le U_I$ for all $p\in I$. The corresponding assertions hold for five variables on $[1/16384,1/2]$ and six variables on $[1/32768,1/2]$. Here Shannon entropy uses natural logarithms. The complete partitions have the counts and bounds in \cref{tab:certificates}.
+\end{proposition}
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{rrrr}
+\toprule
+$m$ & profiles & cells in all partitions & largest upper bound\\
+\midrule
+$4$ & $23$ & $329$ & $-27813/1000000$\\
+$5$ & $216$ & $3{,}757$ & $-14009/1000000$\\
+$6$ & $6{,}767$ & $130{,}172$ & $-1/20000$\\
+\bottomrule
+\end{tabular}
+\caption{Exact Bernstein certificates. The last column is the largest stored upper bound over all cells and profiles, not a sharp maximum of the entropy second derivative.}\label{tab:certificates}
+\end{table}
+
+\begin{proof}[Proof of \cref{prop:certificates}]
+Apply the finite enumerations in \cref{sec:enumeration,sec:six}, then the rational enclosure rules above to every resulting profile. Both partitions and bounds are supplied as rational data. The replayer verifies the enclosure inequalities, negativity of all stored bounds, complete coverage for each profile, and equality of the enumerated and certified profile sets. For six summands, \texttt{replay\_six.py} expands the probability polynomials in powers of $p$, substitutes $p=\alpha+(\beta-\alpha)t$, and converts the result to Bernstein coefficients using
+\[
+ t^j=\sum_{k=j}^d\frac{\binom kj}{\binom dj}\binom dk t^k(1-t)^{d-k}.
+\]
+This identity follows from $\binom dk\binom kj=\binom dj\binom{d-j}{k-j}$ and the binomial theorem. The replayer uses $18$ logarithm terms, compared with $14$ in generation. The separate \texttt{verify\_six.py} uses $22$ terms and fibre rounding at $2^{-42}$, and checks the same inequalities and partitions. Together the replayers return the three rows of \cref{tab:certificates}. Thus each profile has negative curvature on the stated closed interval. All comparisons establishing these inequalities use exact integers and rational numbers.
+\end{proof}
+
+\section{Proof of the theorem}\label{sec:proof}
+
+\begin{proof}[Proof of \cref{thm:main}]
+Fix $m\in\{4,5,6\}$ and a positive real vector $w$. For $m=4,5$, \cref{lem:representative} and the bounded enumeration show that the entropy profile of $w$ is one of the profiles counted in \cref{tab:profiles}. For $m=6$, \cref{prop:sixprofiles} shows that it is one of the profiles counted in \cref{tab:six}. The vector that realizes this profile in the enumeration has the same probability multiset in~\eqref{eq:counts} as $w$ for all $p$, hence the same entropy function.
+By \cref{cor:endpoint}, $F_w''<0$ on $(0,\delta_m]$. By \cref{prop:certificates}, $F_w''<0$ on $[\delta_m,1/2]$. Complement symmetry~\eqref{eq:symmetry} gives $F_w''<0$ on $(0,1)$.
+
+A continuous function on $[0,1]$ with strictly negative second derivative on $(0,1)$ is strictly concave on the closed interval. To see the endpoint assertion explicitly, fix $0\le x<y\le1$ and subtract the affine function joining $(x,F_w(x))$ and $(y,F_w(y))$. The resulting function $g$ vanishes at $x,y$ and has $g''<0$ on $(x,y)$. Concavity on interior compact intervals, followed by continuity, gives $g\ge0$. If $g$ vanished at an interior point, its derivative would vanish there at a local minimum, contradicting $g''<0$. Thus $g>0$ throughout $(x,y)$, as required.
+\end{proof}
+
+\section{Endpoint and block results in every dimension}\label{sec:allm}
+
+\begin{theorem}\label{thm:allendpoint}
+Let $m\ge3$, let $w_1,\ldots,w_m$ be positive real numbers, and let $B_i$ be independent Bernoulli$(p)$ variables. With natural logarithms and $F_w(p)=H(\sum_iw_iB_i)$, put $\eta_m=1/(64m^4)$. Then
+\[
+ F_w''(p)<-\frac1{2p}\quad(0<p\le\eta_m),\qquad
+ F_w''(p)<-\frac1{2(1-p)}\quad(1-\eta_m\le p<1).
+\]
+\end{theorem}
+\begin{proof}
+For $m\ge3$, $\log64<6$ and $\log m<m-1$ give
+$\log(1/\eta_m)<4m+2$. Since $p\log(1/p)$ increases below $e^{-1}$, for $0<p\le\eta_m$ the positive term in \cref{lem:endpoint} satisfies
+\[
+ 4m^2(m-1)p\log(1/p)
+ <\frac{(m-1)(4m+2)}{16m^2}
+ =\frac14-\frac1{8m}-\frac1{8m^2}<\frac14.
+\]
+Both factors of $(1-p)^{m-3}(1-mp)^2$ are nonnegative and decreasing on this interval. Bernoulli's inequality gives
+\[
+ (1-\eta_m)^{m-3}(1-m\eta_m)^2
+ \ge 1-(3m-3)\eta_m>\frac34.
+\]
+For the first inequality, use $(1-\eta_m)^{m-3}\ge1-(m-3)\eta_m$ and $(1-m\eta_m)^2\ge1-2m\eta_m$; their lower bounds are nonnegative and their product is at least the displayed expression. For the last inequality, $3m-3<16m^4$. Substitution into \eqref{eq:endpoint} gives $pF_w''<-1/2$. Complementing the bits proves the reflected inequality.
+\end{proof}
+
+\begin{theorem}\label{thm:limit}
+Let $m\ge1$ and let $w_1,\ldots,w_m$ be positive real numbers. For independent Bernoulli$(p)$ variables, Shannon entropy with natural logarithms satisfies
+\[
+ \lim_{p\downarrow0}p\frac{d^2}{dp^2}H\!\left(\sum_iw_iB_i\right)=-m,
+ \qquad
+ \lim_{p\uparrow1}(1-p)\frac{d^2}{dp^2}H\!\left(\sum_iw_iB_i\right)=-m.
+\]
+\end{theorem}
+\begin{proof}
+Fix the weights. For each nonempty subset-sum fibre let $k_s\ge1$ be its minimum subset cardinality and let $c_s$ be the number of subsets in that fibre of cardinality $k_s$. Its probability polynomial has expansion
+$q_s(p)=c_sp^{k_s}+O(p^{k_s+1})$. If $k_s=1$, then
+\[
+ p\frac{(q_s')^2}{q_s}\to c_s;
+\]
+if $k_s\ge2$, the same expression is $O(p^{k_s-1})$ and tends to zero. Positivity isolates the empty fibre, whose probability is $(1-p)^m$; its contribution to this limit is zero. The coefficients $c_s$ of the fibres with $k_s=1$ total $m$, since every singleton belongs to exactly one such fibre.
+
+For $k_s=1$, $q_s''=O(1)$, so $pq_s''\log q_s=O(p|\log p|)\to0$. For $k_s\ge2$ it is $O(p^{k_s-1}|\log p|)\to0$. For the empty fibre, $q_s''$ is bounded and $\log q_s=O(p)$, so its term also vanishes. Applying these limits to the finite sum \eqref{eq:curvature} gives $-m$. Complement symmetry gives the other endpoint.
+\end{proof}
+
+\begin{theorem}\label{thm:blocks}
+Let $a_1,\ldots,a_\ell$ be distinct positive real numbers and let $r_1,\ldots,r_\ell$ be positive integers. Suppose
+\begin{equation}\label{eq:injective}
+ \sum_{j=1}^{\ell}d_ja_j\ne0
+ \quad\text{for every nonzero }d\in\Z^\ell
+ \text{ with }|d_j|\le r_j.
+\end{equation}
+If $B_{j,i}$, $1\le j\le\ell$, $1\le i\le r_j$, are independent Bernoulli$(p)$ variables, then the Shannon entropy of
+$\sum_{j=1}^{\ell}a_j\sum_{i=1}^{r_j}B_{j,i}$ has strictly negative second derivative on $(0,1)$ and is strictly concave on $[0,1]$. In particular this holds for two positive weight values with irrational ratio, with arbitrary positive multiplicities.
+\end{theorem}
+\begin{proof}
+Put $K_j=\sum_iB_{j,i}$. Every bounded integer vector in \eqref{eq:injective} is the difference of two possible block-count vectors. Thus the condition is precisely injectivity of $(K_j)_j\mapsto\sum_ja_jK_j$. Entropy is invariant under an injective relabelling, and independence gives
+\[
+ H\!\left(\sum_ja_jK_j\right)
+ =H(K_1,\ldots,K_\ell)
+ =\sum_jH(\operatorname{Bin}(r_j,p)).
+\]
+Binomial entropy concavity is classical~\cite{SO,HJ}. We give a short proof of the strict inequality.
+
+Write $h(p)=-p\log p-(1-p)\log(1-p)$. For $K\sim\operatorname{Bin}(n,p)$,
+\[
+ H(K)=nh(p)-\log(n!)+\mathbb E g(K),
+ \qquad g(k)=\log(k!)+\log((n-k)!).
+\]
+For a function $f$ on $\{0,\ldots,n\}$, differentiating the binomial probabilities gives
+\[
+ \frac{d}{dp}\mathbb E f(K)
+ =n\mathbb E[f(Y+1)-f(Y)],\qquad
+ Y\sim\operatorname{Bin}(n-1,p).
+\]
+Indeed, the derivative of the $k$th probability is $n$ times the difference of the $(k-1)$st and $k$th probabilities in dimension $n-1$. Differentiating again gives, for $n\ge2$ and a variable $Z\sim\operatorname{Bin}(n-2,p)$,
+\[
+ \frac{d^2}{dp^2}\mathbb E g(K)
+ =n(n-1)\mathbb E[ g(Z+2)-2g(Z+1)+g(Z)].
+\]
+The second difference is
+\[
+ \log\!\left(1+\frac1{Z+1}\right)
+ +\log\!\left(1+\frac1{n-Z-1}\right).
+\]
+Both denominators are positive. Integrating the binomial generating polynomial gives
+\[
+ \mathbb E\frac1{Z+1}
+ =\int_0^1(1-p+pt)^{n-2}\,dt
+ =\frac{1-(1-p)^{n-1}}{(n-1)p}.
+\]
+Using this identity and its reflection, together with $\log(1+x)<x$ for $x>0$, yields
+\begin{align*}
+ \frac{d^2}{dp^2}H(\operatorname{Bin}(n,p))
+ &<-\frac{n}{p(1-p)}
+   +n\frac{1-(1-p)^{n-1}}p
+   +n\frac{1-p^{n-1}}{1-p}\\
+ &=-n\left(\frac{(1-p)^{n-1}}p+\frac{p^{n-1}}{1-p}\right)<0.
+\end{align*}
+For $n=1$ the derivative is $h''=-1/[p(1-p)]$. Summing over the blocks proves strict negative curvature. Continuity at the endpoints gives strict concavity on the closed interval as in \cref{sec:proof}. For two weight values, an irrational ratio excludes every nonzero integer relation, proving the last assertion.
+\end{proof}
+
+\begin{remark}\label{rem:hypotheses}
+Each hypothesis of \cref{thm:main} is needed for the method: concavity fails for a general Boolean statistic of the bits, for unequal parameters, and for dependent bits with equal marginals. The indicator that four iid Bernoulli$(p)$ bits are all equal has success probability $p^4+(1-p)^4$. At $p=1/2$ this probability and its first two derivatives are $1/8$, $0$, $6$, so its entropy curvature is $6\log7>0$. Thus a general Boolean statistic need not have concave entropy.
+
+The heterogeneous example of the MathOverflow user ssss nnnn, given in a comment on Amir's answer and recorded there~\cite{Amir}, has weights $(1,1,2)$ and parameters $(1/5+t,1/5-t,1/2)$. The probabilities at support values $0,1,2,3,4$ are
+\[
+ \left(\frac8{25}-\frac{t^2}2,\frac4{25}+t^2,
+ \frac{17}{50}-t^2,\frac4{25}+t^2,\frac1{50}-\frac{t^2}2\right).
+\]
+Their first derivatives vanish at zero; substitution of their second derivatives $(-1,2,-2,2,-1)$ gives entropy curvature $\log(289/256)>0$.
+
+For dependent bits with common marginal parameter $p=1/2+t$, take
+\[
+ (\Pp_{00},\Pp_{01},\Pp_{10},\Pp_{11})
+ =\left(\frac14-t+4t^2,\frac14-4t^2,
+ \frac14-4t^2,\frac14+t+4t^2\right).
+\]
+On $|t|\le1/8$ these are probabilities, each at least $3/16$, and both marginals are Bernoulli$(p)$. The sum of the two bits has probabilities $(1/4-t+4t^2,1/2-8t^2,1/4+t+4t^2)$. At zero, \eqref{eq:curvature} gives $16\log2-8>0$. The program \texttt{summarize.py} prints the probability derivatives and the three curvature identities; rational logarithm bounds verify their positive signs.
+\end{remark}
+
+\section{The conjecture from seven summands onward}\label{sec:open}
+
+For arbitrary positive real weights and $m\ge7$, concavity on the whole interval remains open. The endpoint theorems hold in these dimensions, and \cref{thm:blocks} treats injective block encodings, but none supplies the sign for every remaining profile on the central interval.
+
+The finite representative and relation-space reductions hold in every dimension. Their computational cost grows rapidly. At six summands the comparison-preserving bound $192$ still leaves
+$\binom{197}{6}=75{,}176{,}946{,}208$ sorted integer vectors. At seven summands Hadamard's bound gives $907$, and sign-determinant divisibility refines this to $896$, leaving
+\[
+ \binom{902}{7}=94{,}162{,}890{,}744{,}574{,}080
+\]
+sorted integer vectors. These counts are printed by \texttt{summarize.py}.
+
+The orbit method replaces the box by feasible relation spaces, but the number of ternary normals grows from $301$ to $966$, and the coordinate-permutation group grows from $720$ to $5{,}040$. Each retained seven-coordinate space can therefore require $966$ extension tests and up to $5{,}040$ permutation images for canonicalization. Even after a complete classification, the interval-enclosure algorithm need not terminate with negative bounds unless the required curvature inequalities hold. Seven summands need either a faster canonical form for the orbits or a curvature inequality that holds on whole families of profiles.
+
+\section*{Acknowledgments and funding}
+The research presented in this paper was supported by the European Research Council (ERC) under the European Union's Horizon Europe research and innovation programme (grant agreement No.~101041711), by the Simons Foundation as part of the Collaboration on the Mathematical and Scientific Foundations of Deep Learning, by Heights Labs, by Convex Nexus Capital, by the Israel Science Foundation (grant number 2258/19), and by the Israel Science Foundation (ISF Grant 4101/25). Computational resources were provided in part by Google Cloud through its education credits programme (credit 530550103).
+
+\section*{Declaration of competing interest}
+The author holds equity in Heights Labs and in Convex Nexus Capital and has a management role at Convex Nexus Capital. These entities are included in the funding declaration above.
+
+\section*{Code and data availability}
+The \LaTeX\ source, the complete entropy profiles, the rational certificates, and the enumeration and verification programs are available at \url{https://github.com/yspennstate/bernoulli-sum-entropy-concavity}.
+
+\section*{Declaration of generative AI and AI-assisted technologies}
+Codex (OpenAI) found the finite reductions and computed the certificates for four, five and six summands; a second Codex run checked every reduction and certificate with its own code. Claude (Anthropic) checked and edited the text. The work rests on the conjecture of Neunh\"auserer~\cite{Neun}, the formulation and small cases of Amir~\cite{Amir}, the unit-weight theory of Shepp, Olkin, Hillion and Johnson~\cite{SO,HJ} and the integer-representation method of Muroga, Toda and Takasu~\cite{MTT}; the certificates for four to six summands and the endpoint theorems are new. The author selected the problem, directed the work and is responsible for the submission.
+
+\appendix
+\section{Notation}\label{app:notation}
+
+\small
+\begin{longtable}{lp{0.49\textwidth}l}
+\toprule
+symbol & meaning & defined in\\
+\midrule
+\endfirsthead
+\toprule
+symbol & meaning & defined in\\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+$m$ & number of Bernoulli variables & \cref{sec:intro}\\
+$w=(w_i)$ & positive real weights & \cref{sec:intro}\\
+$B_i$ & independent Bernoulli$(p)$ variables & \cref{sec:intro}\\
+$p$ & common success probability & \cref{sec:intro}\\
+$H$ & Shannon entropy, with natural logarithms & \eqref{eq:sum}\\
+$S_w(p),F_w(p)$ & weighted sum and its entropy & \eqref{eq:sum}\\
+$[m]$ & $\{1,\ldots,m\}$ & \cref{sec:setup}\\
+$\mathcal S_w,s$ & set of subset sums and one of its elements & \cref{sec:setup}\\
+$A,k$ & a subset of $[m]$ and its cardinality & \eqref{eq:counts}\\
+$N_{s,k}$ & number of size-$k$ subsets with sum $s$ & \eqref{eq:counts}\\
+$q_s$ & probability polynomial at $s$ & \eqref{eq:counts}\\
+$\Pp$ & probability under the independent bit law & \cref{sec:setup}\\
+$W$ & total weight $\sum_iw_i$ & \eqref{eq:symmetry}\\
+$v=(v_i)$ & positive integer representative & \cref{lem:representative}\\
+$\R,\Z$ & real numbers and integers & \cref{lem:representative}\\
+$M_m$ & integer coordinate bound $\lfloor m^{m/2}\rfloor$ & \cref{lem:representative}\\
+$C$ & a second subset of $[m]$ & \cref{lem:representative}\\
+$\sgn$ & sign, with $\sgn(0)=0$ & \cref{lem:representative}\\
+$a,x$ & ternary normal and feasible real vector & proof of \cref{lem:representative}\\
+$P,x^*$ & feasible polyhedron and a minimizing vertex & proof of \cref{lem:representative}\\
+$A,b,D$ & tight constraint matrix, right side and determinant & proof of \cref{lem:representative}\\
+$A_i$ & $A$ with column $i$ replaced by $b$ & proof of \cref{lem:representative}\\
+$T_m$ & set of ternary normals, one mixed-sign vector per sign pair & \cref{sec:six}\\
+$L(w),L$ & relation space and a feasible such space & \cref{sec:six}\\
+$r,P_I$ & relation-space rank and primitive maximal minors & \cref{sec:six}\\
+$J,j_h,\kappa$ & coordinate set, its elements and cofactor kernel vector & \cref{lem:positive}\\
+$K$ & nonnegative kernel cone & proof of \cref{lem:positive}\\
+$X$ & formal indeterminate of the integer polynomial & \eqref{eq:polynomial}\\
+$\mu_p$ & product law on the Boolean cube & proof of \cref{lem:endpoint}\\
+$\mathbf e_j$ & unit point mass at $j\in\{0,1\}$ & proof of \cref{lem:endpoint}\\
+$\ell^1$ & sum-of-absolute-masses norm & proof of \cref{lem:endpoint}\\
+$w_{\min},r$ & smallest weight and its multiplicity & proof of \cref{lem:endpoint}\\
+$\delta_4,\delta_5,\delta_6$ & endpoint cutoffs $2^{-12}$, $2^{-14}$, $2^{-15}$ & \cref{sec:intro}\\
+$f,d,c_k$ & polynomial, degree and Bernstein coefficients & \eqref{eq:bernstein}\\
+$I,\alpha,\beta$ & rational cell and its endpoints & \cref{sec:bernstein}\\
+$t,c_j^{(h)},h$ & split parameter, subdivision array and its level & \cref{sec:bernstein}\\
+$j,k,\ell$ & coefficient and summation indices & \eqref{eq:polar}\\
+$x,\nu,y,z$ & positive log argument, binary exponent, normalized argument and $(y-1)/(y+1)$ & \cref{sec:logs}\\
+$N,L_N,E_N$ & series length, logarithm lower bound and remainder bound & \eqref{eq:log}\\
+$q_-,q_+$ & lower and upper probability enclosures on $I$ & \cref{sec:partitions}\\
+$d_-,d_+$ & lower and upper first-derivative enclosures & \cref{sec:partitions}\\
+$e_-,e_+$ & lower and upper second-derivative enclosures & \cref{sec:partitions}\\
+$\lambda_-,\lambda_+$ & lower and upper logarithm enclosures & \cref{sec:partitions}\\
+$T_-,V_-$ & lower bounds for $q_s''\log q_s$ and $(q_s')^2$ & \cref{sec:partitions}\\
+$U_I$ & rational upper bound for entropy curvature on $I$ & \cref{sec:partitions}\\
+$x,y,g$ & chord endpoints and entropy minus its chord & \cref{sec:proof}\\
+$t$ & perturbation parameter in the counterexamples & \cref{rem:hypotheses}\\
+$\eta_m$ & all-dimension endpoint cutoff $1/(64m^4)$ & \cref{thm:allendpoint}\\
+$k_s,c_s$ & minimum fibre cardinality and leading count & proof of \cref{thm:limit}\\
+$a_j,r_j,\ell$ & block values, multiplicities and number of blocks & \cref{thm:blocks}\\
+$d,K_j$ & bounded integer relation and binomial block count & \cref{thm:blocks}\\
+$h,g,Y,Z$ & binary entropy, factorial function and auxiliary binomial variables & proof of \cref{thm:blocks}\\
+$\mathbb E$ & expectation & proof of \cref{thm:blocks}\\
+$i,j,k,h,\ell$ & integer indices with the ranges specified locally & \cref{sec:intro}\\
+$\#E,|E|$ & cardinality of a finite set $E$ & \eqref{eq:counts}\\
+$\binom dk$ & binomial coefficient & \cref{tab:profiles}\\
+$u$ & integration variable for the logarithm series & \cref{sec:logs}\\
+$\mathbf 1_A$ & indicator vector of a subset $A\subseteq[m]$ & proof of \cref{lem:relations}\\
+\end{longtable}
+\normalsize
+
+\begin{thebibliography}{99}
+
+\bibitem{Neun} J.~Neunh\"auserer, \emph{Recursive overlap Bernoulli distributions and an entropy concavity conjecture}, arXiv:2609.05546v2, 2026, \url{https://arxiv.org/abs/2609.05546}.
+
+\bibitem{Amir} Amir, Answer to ``A recursive overlap construction of finite Bernoulli-sum laws and an entropy-concavity conjecture'', \emph{MathOverflow}, question 514729, answer 515134, 11 September 2026, updated 15 September 2026, \url{https://mathoverflow.net/a/515134}.
+
+\bibitem{SO} L.~A.~Shepp and I.~Olkin, Entropy of the sum of independent Bernoulli random variables and of the multinomial distribution, in \emph{Contributions to Probability}, Academic Press, New York, 1981, 201--206, doi:10.1016/B978-0-12-274460-0.50022-9.
+
+\bibitem{HJ} E.~Hillion and O.~Johnson, A proof of the Shepp--Olkin entropy concavity conjecture, \emph{Bernoulli} \textbf{23} (2017), no.~4B, 3638--3649, doi:10.3150/16-BEJ860; arXiv:1503.01570.
+
+\bibitem{Shannon} C.~E.~Shannon, A Mathematical Theory of Communication, \emph{Bell System Technical Journal} \textbf{27} (1948), 379--423, 623--656, doi:10.1002/j.1538-7305.1948.tb01338.x and doi:10.1002/j.1538-7305.1948.tb00917.x.
+
+\bibitem{MTT} S.~Muroga, I.~Toda and S.~Takasu, Theory of majority decision elements, \emph{J. Franklin Inst.} \textbf{271} (1961), no.~5, 376--418, doi:10.1016/0016-0032(61)90702-5.
+
+\bibitem{Servedio} R.~A.~Servedio, Every Linear Threshold Function has a Low-Weight Approximator, \emph{Computational Complexity} \textbf{16} (2007), no.~2, 180--209, doi:10.1007/s00037-007-0228-7.
+
+\bibitem{Matrix} R.~A.~Horn and C.~R.~Johnson, \emph{Matrix Analysis}, second edition, Cambridge University Press, Cambridge, 2012, doi:10.1017/CBO9781139020411.
+
+\bibitem{Farouki} R.~T.~Farouki, The Bernstein polynomial basis: A centennial retrospective, \emph{Computer Aided Geometric Design} \textbf{29} (2012), no.~6, 379--419, doi:10.1016/j.cagd.2012.03.001.
+
+\bibitem{Li} J.~Li, \emph{Multiplicative comparisons of R\'enyi entropies for weighted Bernoulli sums}, arXiv:2609.01529v2, 2026, \url{https://arxiv.org/abs/2609.01529}.
+
+\bibitem{Wang} H.~Wang, \emph{The Sharp R\'enyi and Tsallis Threshold in the Shepp--Olkin Concavity Problem}, arXiv:2609.27433v1, 2026, \url{https://arxiv.org/abs/2609.27433}.
+
+\bibitem{CSS} I.~Chevyrev, D.~Searles and A.~Slinko, On the number of facets of polytopes representing comparative probability orders, \emph{Order} \textbf{30} (2013), no.~3, 749--761, doi:10.1007/s11083-012-9274-0; arXiv:1103.3938.
+
+\bibitem{Ehlich} H.~Ehlich, Determinantenabsch\"atzungen f\"ur bin\"are Matrizen, \emph{Mathematische Zeitschrift} \textbf{83} (1964), 123--132, doi:10.1007/BF01111249.
+
+\bibitem{Wojtas} M.~Wojtas, On Hadamard's inequality for the determinants of order non-divisible by 4, \emph{Colloquium Mathematicum} \textbf{12} (1964), no.~1, 73--83, doi:10.4064/cm-12-1-73-83.
+
+\end{thebibliography}
+\end{document}

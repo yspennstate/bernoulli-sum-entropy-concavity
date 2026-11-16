@@ -1,0 +1,13 @@
+{
+  "m": 6,
+  "complete": true,
+  "profiles_processed": 6767,
+  "profiles_total": 6767,
+  "cells": 130172,
+  "largest_upper_bound": "-1/20000",
+  "delta": "1/32768",
+  "endpoint_positive_upper": "675/2048",
+  "endpoint_negative_lower": "9440410169765069258743/9444732965739290427392",
+  "max_witness_parameter": 29,
+  "seconds": 17.938262125011533
+}

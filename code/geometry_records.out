@@ -1,0 +1,5 @@
+5000 validated 4.7576206249999995
+10000 validated 8.555593833
+15000 validated 11.895057792
+20000 validated 15.026885125
+{"pass": true, "flats": 23273, "orbits_by_rank": {"0": 1, "1": 9, "2": 117, "3": 1593, "4": 10334, "5": 11219}, "profiles": 6767, "maximum_exterior_coordinate_by_rank": {"0": 1, "1": 1, "2": 2, "3": 4, "4": 12, "5": 30}, "seconds": 17.12488725}

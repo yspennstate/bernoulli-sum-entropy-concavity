@@ -1,0 +1,4 @@
+REPLAY PASS m=4: 3876 vectors, 23 profiles, 329 cells, largest upper bound -27813/1000000
+ENDPOINT PASS m=4: positive upper 9/16, negative lower 4285536255/4294967296
+REPLAY PASS m=5: 5006386 vectors, 216 profiles, 3757 cells, largest upper bound -14009/1000000
+ENDPOINT PASS m=5: positive upper 175/512, negative lower 72004829826842649/72057594037927936

@@ -1,0 +1,15 @@
+{"profiles": 500, "cells": 9403, "seconds": 4.717623875}
+{"profiles": 1000, "cells": 19052, "seconds": 7.148805167}
+{"profiles": 1500, "cells": 28133, "seconds": 9.13586175}
+{"profiles": 2000, "cells": 37638, "seconds": 11.581096167}
+{"profiles": 2500, "cells": 47331, "seconds": 13.322795625}
+{"profiles": 3000, "cells": 56568, "seconds": 15.702826374999999}
+{"profiles": 3500, "cells": 65544, "seconds": 17.790117834}
+{"profiles": 4000, "cells": 75362, "seconds": 20.451808875}
+{"profiles": 4500, "cells": 84633, "seconds": 22.535937042}
+{"profiles": 5000, "cells": 94512, "seconds": 24.557359792}
+{"profiles": 5500, "cells": 103966, "seconds": 28.072223417}
+{"profiles": 6000, "cells": 113832, "seconds": 32.15086575}
+{"profiles": 6500, "cells": 124169, "seconds": 39.316117667}
+ENDPOINT PASS m=6: positive upper 675/2048 negative lower 9440410169765069258743/9444732965739290427392
+{"pass": true, "profiles": 6767, "cells": 130172, "largest_upper_bound": "-1/20000", "seconds": 49.378430709, "implementation": "power shift to Bernstein, 18 log terms, outward atom rounding"}

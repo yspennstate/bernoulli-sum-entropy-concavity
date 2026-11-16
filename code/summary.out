@@ -1,0 +1,44 @@
+representative (1, 1, 1, 1) support 5
+representative (1, 1, 1, 2) support 6
+representative (1, 1, 1, 3) support 7
+representative (1, 1, 2, 2) support 7
+representative (1, 1, 1, 4) support 8
+representative (1, 1, 2, 3) support 8
+representative (1, 1, 2, 4) support 9
+representative (1, 1, 3, 3) support 9
+representative (1, 2, 2, 3) support 9
+representative (1, 1, 2, 5) support 10
+representative (1, 1, 3, 4) support 10
+representative (1, 2, 3, 3) support 10
+representative (1, 1, 3, 5) support 11
+representative (1, 2, 3, 4) support 11
+representative (1, 3, 3, 5) support 11
+representative (1, 1, 3, 6) support 12
+representative (1, 2, 3, 5) support 12
+representative (1, 2, 3, 6) support 13
+representative (1, 2, 4, 5) support 13
+representative (1, 2, 3, 7) support 14
+representative (1, 2, 4, 7) support 15
+representative (1, 3, 5, 7) support 15
+representative (1, 2, 4, 8) support 16
+SUMMARY m=4 bound=16 vectors=3876 profiles=23 cells=329 worst=-27813/1000000 cutoff=1/4096
+SUMMARY m=5 bound=55 vectors=5006386 profiles=216 cells=3757 worst=-14009/1000000 cutoff=1/16384
+ORBITS m=4 by_rank=[1, 4, 10, 8] total=23 profiles=23 normals=25
+PROFILE SET AGREEMENT m=4 PASS
+ORBITS m=5 by_rank=[1, 6, 38, 139, 113] total=297 profiles=216 normals=90
+PROFILE SET AGREEMENT m=5 PASS
+ORBITS m=6 by_rank=[1, 9, 117, 1593, 10334, 11219] total=23273 profiles=6767 normals=301
+SUMMARY m=6 profiles=6767 cells=130172 worst=-1/20000 cutoff=1/32768
+MAXIMUM PRIMITIVE EXTERIOR COORDINATES [1, 1, 2, 4, 12, 30]
+COMPACT witnesses=6767 maximum_coordinate=36
+GEOMETRY candidate_extensions=3628254 feasible_extensions=717239
+DETERMINANT m=6 Hadamard=216 divisibility=192 Ehlich_Wojtas=160
+COST m=6 Hadamard_bound=216 sign_divisor=32 refined_bound=192 sorted_vectors=75176946208 normals=301 permutations=720
+COST m=7 Hadamard_bound=907 sign_divisor=64 refined_bound=896 sorted_vectors=94162890744574080 normals=966 permutations=5040
+HETEROGENEOUS probabilities (Fraction(8, 25), Fraction(4, 25), Fraction(17, 50), Fraction(4, 25), Fraction(1, 50))
+HETEROGENEOUS second derivatives (Fraction(-1, 1), Fraction(2, 1), Fraction(-2, 1), Fraction(2, 1), Fraction(-1, 1))
+HETEROGENEOUS curvature log(289/256)
+ALL-EQUAL probability=1/8 derivative=0 second=6 curvature=6 log(7)
+DEPENDENT probability jets ((Fraction(1, 4), Fraction(-1, 1), Fraction(8, 1)), (Fraction(1, 2), Fraction(0, 1), Fraction(-16, 1)), (Fraction(1, 4), Fraction(1, 1), Fraction(8, 1)))
+DEPENDENT curvature=16 log(2)-8
+COUNTEREXAMPLE SIGNS PASS (rational logarithm lower bounds)

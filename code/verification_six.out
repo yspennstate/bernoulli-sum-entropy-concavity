@@ -1,0 +1,7 @@
+profiles 1000 cells 19052 seconds 9.09
+profiles 2000 cells 37638 seconds 14.02
+profiles 3000 cells 56568 seconds 19.32
+profiles 4000 cells 75362 seconds 25.58
+profiles 5000 cells 94512 seconds 30.99
+profiles 6000 cells 113832 seconds 40.42
+{"pass": true, "profiles": 6767, "cells": 130172, "largest_stored_upper": "-1/20000", "largest_recomputed_upper": "-110169287/2199023255552", "compact_max_coordinate": 36, "asymptotic_singleton_coefficient_range": [6, 6], "seconds": 65.317085125}

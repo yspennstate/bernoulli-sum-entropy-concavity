@@ -1,0 +1,12 @@
+ENUMERATION PASS m=4: 3876 vectors, 23 profiles, representative counts checked
+CERTIFICATE PASS {'m': 4, 'profiles': 23, 'delta': '1/4096', 'cells': 329, 'largest_upper_bound': '-27813/1000000', 'endpoint_positive_upper': '9/16', 'endpoint_negative_lower': '4285536255/4294967296', 'seconds': 1.687495209, 'pass': True}
+ENUMERATION PASS m=5: 5006386 vectors, 216 profiles, representative counts checked
+m=5: profiles=25, cells=425, seconds=6.98
+m=5: profiles=50, cells=850, seconds=13.52
+m=5: profiles=75, cells=1275, seconds=19.81
+m=5: profiles=100, cells=1701, seconds=25.65
+m=5: profiles=125, cells=2121, seconds=32.14
+m=5: profiles=150, cells=2548, seconds=38.09
+m=5: profiles=175, cells=2978, seconds=44.12
+m=5: profiles=200, cells=3420, seconds=49.07
+CERTIFICATE PASS {'m': 5, 'profiles': 216, 'delta': '1/16384', 'cells': 3757, 'largest_upper_bound': '-14009/1000000', 'endpoint_positive_upper': '175/512', 'endpoint_negative_lower': '72004829826842649/72057594037927936', 'seconds': 52.792369833, 'pass': True}

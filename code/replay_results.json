@@ -1,0 +1,8 @@
+{
+  "pass": true,
+  "profiles": 6767,
+  "cells": 130172,
+  "largest_upper_bound": "-1/20000",
+  "seconds": 49.378430709,
+  "implementation": "power shift to Bernstein, 18 log terms, outward atom rounding"
+}
