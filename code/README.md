@@ -62,6 +62,14 @@ Expected enumeration output is `m=4 bound=16 vectors=3876 profiles=23` and `m=5 
 
 `verify_six.py` independently uses normalized Bernstein differences, de Casteljau restriction, 22 logarithm terms and outward fibre rounding at 2^-42. It verifies the same 130,172 cells and every compact witness against the full profile set. Expected final fields include `pass: true`, `profiles: 6767`, `cells: 130172`, `largest_stored_upper: -1/20000`, `largest_recomputed_upper: -110169287/2199023255552`, and `compact_max_coordinate: 36`. Each singleton leading-coefficient sum is six. The certificate witnesses need not be the compact witnesses; equality of their full profiles is checked.
 
+## Independent re-checks
+
+These programs repeat computations that the paper's proofs take from the programs above; the paper does not rely on them.
+
+- `enumerate_python.py` recomputes the four- and five-summand profiles from the polynomial prod_i (1 + X^((m+1) v_i + 1)): the coefficient of X^((m+1) s + k) is N_{s,k}. It prints the same vector and profile counts as `enumerate.cpp` and checks that the full profile sets, not only their sizes, are equal.
+- `verify_geometry.cpp` represents each relation space by its set of contained ternary normals, computed from a nullspace basis, checks that the listed permutation orbits are distinct and closed under every feasible extension (3,628,254 candidate extensions from ranks zero through four, 717,239 of them feasible, counting repetitions), and checks that for four and five summands the orbit enumeration and the bounded integer enumeration give the same profile sets.
+- The certificate generators use de Casteljau subdivision and 14 logarithm terms; the four- and five-summand replayer evaluates the polar form directly with 18 terms, and `verify_six.py` uses 22 terms (details above).
+
 `summarize.py` prints the four-summand representative table, all certificate and orbit totals, agreement of the complete four/five profile sets, the compact coordinate bound, closure totals, endpoint-box costs and the three counterexample identities. In dimension seven its comparison-preserving bound is 896, its box count is 94162890744574080, its normal count is 966 and its permutation count is 5040. The stronger classical order-six determinant estimate is 160; the convenient divisibility estimate is 192. Rational logarithm lower bounds prove positive signs for all three counterexamples.
 
 `check_latex.py` checks braces, nested environments, references, citations, macro names, math delimiters and duplicate labels/keys, and runs five deliberate rejection probes in memory. It defaults to the article source. A passing static check does not establish a PDF build or visual layout.
