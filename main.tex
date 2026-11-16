@@ -55,7 +55,7 @@
 \thispagestyle{fancy}
 
 \begin{abstract}
-J\"org Neunh\"auserer conjectures that a family of recursively overlapped Bernoulli distributions has concave entropy. Amir's formulation asks whether the Shannon entropy of a sum of independent Bernoulli$(p)$ variables with positive real weights is concave in $p$; Amir proves this for at most three summands. We prove strict concavity for four, five and six summands. The entropy depends on the weights only through their entropy profile, the numbers of subsets of each size attaining each value of the sum. An integer-weight argument of Muroga type keeps every coincidence; there are 23, 216 and 6,767 entropy profiles for four, five and six summands, and for six summands they are enumerated through subset-sum relations. Exact rational Bernstein enclosures prove negative curvature for each profile away from the endpoints, where an analytic estimate applies. For every number of summands we bound the curvature near the endpoints and find its leading term.
+J\"org Neunh\"auserer conjectures that a family of recursively overlapped Bernoulli distributions has entropy concave in its parameter. Amir asks more generally whether the entropy of a positively weighted sum of independent Bernoulli$(p)$ variables is concave in $p$, and proves this for at most three summands. We prove strict concavity for four, five and six summands. The entropy depends on the weights only through their entropy profile, the numbers of subsets of each size attaining each value of the sum. Integer weights with the same subset-sum coincidences exist; there are 23, 216 and 6,767 entropy profiles for four, five and six summands, the last via subset-sum relations. Exact rational Bernstein enclosures prove negative curvature for each profile away from the endpoints, where an analytic estimate applies. We find the curvature's leading term at the endpoints for any number of summands, and bound it near them for three or more.
 \end{abstract}
 
 \noindent\textit{Keywords:} Shannon entropy, weighted Bernoulli sums, entropy concavity, subset sums, rational certificates.\\
@@ -68,11 +68,13 @@ Let $m$ be a positive integer, let $w=(w_1,\ldots,w_m)$ have positive real coord
  S_w(p)=\sum_{i=1}^m w_i B_i,\qquad F_w(p)=H(S_w(p)),
 \end{equation}
 where $H$ is Shannon entropy with natural logarithms~\cite{Shannon}.
-The question is whether $F_w$ is concave for every $m$ and every such $w$.
+The positive-weight concavity question asks whether $F_w$ is concave for every $m$ and every such $w$.
 
 J\"org Neunh\"auserer~\cite{Neun} poses an entropy-concavity conjecture for finite distributions constructed by repeatedly placing two scaled copies of a probability vector with an overlap. The construction interpolates between a binomial law and a Bernoulli product law; its motivation includes random walks on self-similar graphs. Amir~\cite{Amir} gives the positive-weight formulation~\eqref{eq:sum}: the shifts between successive embeddings become the weights of independent bits. Integer weights include the recursive construction, and arbitrary positive real weights give a natural extension. Neunh\"auserer~\cite[Proposition~3.1]{Neun} treats the binomial and nonoverlapping extremes.
 
-Amir~\cite{Amir} proves that $F_w$ is strictly concave for $m\le3$; the case $m=1$ is the binary entropy function. For $m=4$ he sorts weight vectors by which subset sums coincide, which up to permutation of the weights gives $23$ classes, checks all of them numerically and proves seven analytically. Three things stand in the way of continuing this case analysis. The weights are real, and rounding them can separate subset sums that are equal, which changes the law of $S_w$. The number of cases grows: $F_w$ depends on $w$ only through its entropy profile, the multiset of vectors $(N_{s,0},\ldots,N_{s,m})$, one for each value $s$ of $S_w$, where $N_{s,k}$ is the number of $k$-element subsets of the weights with sum $s$, and there are $23$ entropy profiles for $m=4$, in bijection with Amir's classes, $216$ for $m=5$ and $6{,}767$ for $m=6$. And interval enclosures of $F_w''$ need a positive lower bound for every $q_s$, which fails at $p=0$ for every $s\ne0$; indeed $pF_w''(p)\to-m$ as $p\downarrow0$ (\cref{thm:limit}).
+Precisely, let $(a_n)$ be a strictly increasing sequence of integers with $a_1=2$, put $P_1(p)=(p,1-p)$ and $P_{n+1}(p)=pL(P_n(p))+(1-p)R(P_n(p))$, where $L$ and $R$ place a vector of length $a_n$ at the left and at the right end of a vector of length $a_{n+1}$. Neunh\"auserer~\cite[Conjecture~3.1]{Neun} conjectures that the entropy of $P_n(p)$ is concave in $p\in[0,1]$ for every such sequence and every $n$. The law $P_n(p)$ is that of $\sum_{i=1}^n d_iB_i$ with $d_1=1$, $d_i=a_i-a_{i-1}$ and independent Bernoulli$(1-p)$ variables $B_i$. Since $p\mapsto1-p$ preserves concavity, the conjecture for a given $n$ is the positive-weight concavity question with $m=n$ and integer weights.
+
+Amir~\cite{Amir} proves that $F_w$ is strictly concave for $m\le3$; the case $m=1$ is the binary entropy function. For $m=4$ he sorts weight vectors by which subset sums coincide, which up to permutation of the weights gives $23$ classes, checks all of them numerically and proves seven analytically. Three things stand in the way of continuing this case analysis. The weights are real, and rounding them can separate subset sums that are equal, which changes the law of $S_w$. The number of cases grows: $F_w$ depends on $w$ only through its entropy profile, the multiset of vectors $(N_{s,0},\ldots,N_{s,m})$, one for each value $s$ of $S_w$, where $N_{s,k}$ is the number of $k$-element subsets of the weights with sum $s$, and there are $23$ entropy profiles for $m=4$, in bijection with Amir's classes, $216$ for $m=5$ and $6{,}767$ for $m=6$. And interval enclosures of $F_w''$ need a positive lower bound for the probability of every value $s$ of $S_w(p)$, and for $s\ne0$ this probability vanishes at $p=0$; indeed $pF_w''(p)\to-m$ as $p\downarrow0$ (\cref{thm:limit}).
 
 The first obstruction is removed by a vertex of the polyhedron cut out by the signs of all differences of two subset sums. Cramer's rule and Hadamard's inequality bound its coordinates, so every positive $w$ has an integer vector $v$ with $1\le v_i\le\lfloor m^{m/2}\rfloor$ and the same sign, zero included, for every such difference (\cref{lem:representative}). The integer-weight method of Saburo Muroga, Iwao Toda and Satoru Takasu~\cite{MTT}, as described by Rocco Servedio~\cite{Servedio}, keeps the strict inequalities; this lemma keeps the equalities as well, and with them the entropy profile. For $m=6$ the integer box is too large, and we enumerate instead relation spaces, the relation space of $w$ being the linear span of the vectors $a\in\{-1,0,1\}^6$ with $a\cdot w=0$; up to coordinate permutation there are $23{,}273$ relation spaces whose orthogonal complement meets the open positive orthant. On each entropy profile, exact rational Bernstein enclosures give $F_w''<0$ on $[\delta_m,1/2]$, where $\delta_4=2^{-12}$, $\delta_5=2^{-14}$ and $\delta_6=2^{-15}$. Near $p=0$ the only subsets with sum equal to the smallest weight are singletons, and for every $m\ge3$ this gives
 \[
@@ -224,7 +226,7 @@ For subsets $A,C\subseteq[m]$ with indicator vectors $\mathbf 1_A,\mathbf 1_C$, 
 For a feasible space $L$ spanned by ternary normals, the positive part of $L^\perp$ is nonempty and relatively open. For $a\in T_m\setminus L$, the hyperplane $a^\perp\cap L^\perp$ is proper. Avoiding these finitely many hyperplanes gives a positive vector with exactly the relations in $L$. A chain of ternary normals forming a basis of $L$ reaches $L$; each intermediate orthogonal complement contains the same positive vector. Finally, coordinate permutations preserve the set of ternary normals, feasibility and subset cardinalities. Extending one representative by every ternary normal therefore reaches every successor orbit.
 \end{proof}
 
-A rank-$r$ space is represented by the maximal minors $P_I$ of an integer row basis, indexed by the $r$-element coordinate subsets. Divide by their common divisor and orient so that the first nonzero coordinate is positive. These primitive exterior coordinates determine the row space; rank zero has the single coordinate $1$. Adjoining a normal takes an exterior product. A zero product means that the normal already belongs to the space. Coordinate permutations act by signed permutations of the minors. The least oriented vector in lexicographic order is the orbit representative. The maximum absolute primitive coordinates at ranks zero through five are $1,1,2,4,12,30$, printed by \texttt{summarize.py}; the program \texttt{validate\_geometry.py} checks every maximal minor, ternary generation, positive kernel witness and entropy profile. The enumerator checks that each retained coordinate has magnitude at most $30$ before extending it. An unnormalized extension is a sum of at most six such coordinates and hence has magnitude at most $180$, safely within the signed integer type. Profile coefficients are at most $\binom6k\le20$, so base-$64$ packing has no carries and fits in an unsigned $64$-bit integer.
+A rank-$r$ space is represented by the maximal minors $P_I$ of an integer row basis, indexed by the $r$-element coordinate subsets. Divide by their common divisor and orient so that the first nonzero coordinate is positive. These primitive exterior coordinates determine the row space; rank zero has the single coordinate $1$. Adjoining a normal takes an exterior product. A zero product means that the normal already belongs to the space. Coordinate permutations act by signed permutations of the minors. The least oriented vector in lexicographic order is the orbit representative. The maximum absolute primitive coordinates at ranks zero through five are $1,1,2,4,12,30$. The enumerator checks that each retained coordinate has magnitude at most $30$ before extending it. An unnormalized extension is a sum of at most six such coordinates and hence has magnitude at most $180$. Profile coefficients are at most $\binom6k\le20$, so base-$64$ packing has no carries and fits in an unsigned $64$-bit integer.
 
 \begin{lemma}\label{lem:positive}
 Let $L\subseteq\R^m$ have rank $r<m$, with maximal minors $P_I$ of a row basis. For each ordered coordinate set $J=\{j_0<\cdots<j_r\}$, form the vector supported on $J$ whose entries are
@@ -265,7 +267,6 @@ The sums of six independent Bernoulli$(p)$ variables with positive real weights 
 The integer operations just described, implemented in \texttt{enumerate\_flats.cpp}, enumerate all feasible relation-space orbits by \cref{lem:relations,lem:positive}. They give \cref{tab:six}. Grouping signatures gives exactly the stated profile set. The supplied compact representatives have coordinates at most $36$; \texttt{verify\_six.py} reconstructs their subset-count generating polynomials and checks equality of their full profile set with the enumerated set. Thus each profile is realized by such a representative. A representative with coordinates at most $36$ has the same entropy profile as $w$; it need not have the same signs of subset-sum comparisons.
 \end{proof}
 
-For $m=4,5$ the orbit enumeration and the bounded integer enumeration give the same profile sets.
 
 \section{Uniform endpoint bounds}\label{sec:endpoint}
 
@@ -329,7 +330,7 @@ For $m=6$,
 (1-\delta_6)^3(1-6\delta_6)^2
 =\frac{9440410169765069258743}{9444732965739290427392}>\frac34.
 \]
-Substitution proves the bounds; \eqref{eq:symmetry} gives their reflections. The program \texttt{replay.py} prints and checks the four- and five-summand endpoint constants; \texttt{replay\_six.py} does so for six summands.
+Substitution proves the bounds; \eqref{eq:symmetry} gives their reflections.
 \end{proof}
 
 \section{Rational certificates on the remaining interval}\label{sec:certificates}
@@ -526,7 +527,7 @@ For $n=1$ the derivative is $h''=-1/[p(1-p)]$. Summing over the blocks proves st
 \end{proof}
 
 \begin{remark}\label{rem:hypotheses}
-Each hypothesis of \cref{thm:main} is needed for the method: concavity fails for a general Boolean statistic of the bits, for unequal parameters, and for dependent bits with equal marginals. The indicator that four iid Bernoulli$(p)$ bits are all equal has success probability $p^4+(1-p)^4$. At $p=1/2$ this probability and its first two derivatives are $1/8$, $0$, $6$, so its entropy curvature is $6\log7>0$. Thus a general Boolean statistic need not have concave entropy.
+Without any one of the hypotheses of \cref{thm:main} the conclusion can fail: concavity fails for a general Boolean statistic of the bits, for unequal parameters, and for dependent bits with equal marginals. The indicator that four iid Bernoulli$(p)$ bits are all equal has success probability $p^4+(1-p)^4$. At $p=1/2$ this probability and its first two derivatives are $1/8$, $0$, $6$, so its entropy curvature is $6\log7>0$. Thus a general Boolean statistic need not have concave entropy.
 
 The heterogeneous example of the MathOverflow user ssss nnnn, given in a comment on Amir's answer and recorded there~\cite{Amir}, has weights $(1,1,2)$ and parameters $(1/5+t,1/5-t,1/2)$. The probabilities at support values $0,1,2,3,4$ are
 \[
@@ -541,19 +542,19 @@ For dependent bits with common marginal parameter $p=1/2+t$, take
  =\left(\frac14-t+4t^2,\frac14-4t^2,
  \frac14-4t^2,\frac14+t+4t^2\right).
 \]
-On $|t|\le1/8$ these are probabilities, each at least $3/16$, and both marginals are Bernoulli$(p)$. The sum of the two bits has probabilities $(1/4-t+4t^2,1/2-8t^2,1/4+t+4t^2)$. At zero, \eqref{eq:curvature} gives $16\log2-8>0$. The program \texttt{summarize.py} prints the probability derivatives and the three curvature identities; rational logarithm bounds verify their positive signs.
+On $|t|\le1/8$ these are probabilities, each at least $3/16$, and both marginals are Bernoulli$(p)$. The sum of the two bits has probabilities $(1/4-t+4t^2,1/2-8t^2,1/4+t+4t^2)$. At zero, \eqref{eq:curvature} gives $16\log2-8>0$.
 \end{remark}
 
-\section{The conjecture from seven summands onward}\label{sec:open}
+\section{The positive-weight question from seven summands onward}\label{sec:open}
 
-For arbitrary positive real weights and $m\ge7$, concavity on the whole interval remains open. The endpoint theorems hold in these dimensions, and \cref{thm:blocks} treats injective block encodings, but none supplies the sign for every remaining profile on the central interval.
+For arbitrary positive real weights and $m\ge7$, the positive-weight concavity question remains open. The endpoint theorems hold in these dimensions, and \cref{thm:blocks} treats injective block encodings, but none supplies the sign for every remaining profile on the central interval.
 
 The finite representative and relation-space reductions hold in every dimension. Their computational cost grows rapidly. At six summands the comparison-preserving bound $192$ still leaves
 $\binom{197}{6}=75{,}176{,}946{,}208$ sorted integer vectors. At seven summands Hadamard's bound gives $907$, and sign-determinant divisibility refines this to $896$, leaving
 \[
  \binom{902}{7}=94{,}162{,}890{,}744{,}574{,}080
 \]
-sorted integer vectors. These counts are printed by \texttt{summarize.py}.
+sorted integer vectors.
 
 The orbit method replaces the box by feasible relation spaces, but the number of ternary normals grows from $301$ to $966$, and the coordinate-permutation group grows from $720$ to $5{,}040$. Each retained seven-coordinate space can therefore require $966$ extension tests and up to $5{,}040$ permutation images for canonicalization. Even after a complete classification, the interval-enclosure algorithm need not terminate with negative bounds unless the required curvature inequalities hold. Seven summands need either a faster canonical form for the orbits or a curvature inequality that holds on whole families of profiles.
 
@@ -566,7 +567,7 @@ This work was done by multiple AI agents, Claude (Anthropic) and Codex (OpenAI),
 The author holds equity in Heights Labs and in Convex Nexus Capital and has a management role at Convex Nexus Capital. These entities are included in the funding declaration above.
 
 \section*{Code and data availability}
-The \LaTeX\ source, the complete entropy profiles, the rational certificates, and the enumeration and verification programs are available at \url{https://github.com/yspennstate/bernoulli-sum-entropy-concavity}.
+The \LaTeX\ source, the complete entropy profiles, the rational certificates, and the enumeration and verification programs are available at \url{https://github.com/yspennstate/bernoulli-sum-entropy-concavity}. There \texttt{replay.py} and \texttt{replay\_six.py} recompute the endpoint constants, \texttt{summarize.py} prints the coordinate bounds, the enumeration counts and the curvature identities of the counterexamples, \texttt{validate\_geometry.py} checks every maximal minor, ternary generation, positive kernel witness and entropy profile, and for $m=4,5$ the orbit enumeration and the bounded integer enumeration are compared and give the same profile sets.
 
 \section*{Declaration of generative AI and AI-assisted technologies}
 Codex (OpenAI) found the finite reductions and computed the certificates for four, five and six summands; a second Codex run checked every reduction and certificate with its own code. Claude (Anthropic) checked and edited the text. The work rests on the conjecture of Neunh\"auserer~\cite{Neun}, the formulation and small cases of Amir~\cite{Amir}, the unit-weight theory of Shepp, Olkin, Hillion and Johnson~\cite{SO,HJ} and the integer-representation method of Muroga, Toda and Takasu~\cite{MTT}; the certificates for four to six summands and the endpoint theorems are new. The author selected the problem, directed the work and is responsible for the submission.
@@ -604,9 +605,9 @@ $\R,\Z$ & real numbers and integers & \cref{lem:representative}\\
 $M_m$ & integer coordinate bound $\lfloor m^{m/2}\rfloor$ & \cref{lem:representative}\\
 $C$ & a second subset of $[m]$ & \cref{lem:representative}\\
 $\sgn$ & sign, with $\sgn(0)=0$ & \cref{lem:representative}\\
-$a,x$ & ternary normal and feasible real vector & proof of \cref{lem:representative}\\
+$a,x$ & nonzero vector of $\{-1,0,1\}^m$ and feasible real vector & proof of \cref{lem:representative}\\
 $P,x^*$ & feasible polyhedron and a minimizing vertex & proof of \cref{lem:representative}\\
-$A,b,D$ & tight constraint matrix, right side and determinant & proof of \cref{lem:representative}\\
+$b,D$ & right side of the tight constraints and $\det G$ & proof of \cref{lem:representative}\\
 $G$, $G_i$ & matrix of $m$ independent tight constraints; $G$ with column $i$ replaced by $b$ & proof of \cref{lem:representative}\\
 $T_m$ & set of ternary normals, one mixed-sign vector per sign pair & \cref{sec:six}\\
 $L(w),L$ & relation space and a feasible such space & \cref{sec:six}\\
