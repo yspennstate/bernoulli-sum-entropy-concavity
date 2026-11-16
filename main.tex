@@ -55,7 +55,7 @@
 \thispagestyle{fancy}
 
 \begin{abstract}
-J\"org Neunh\"auserer conjectures that recursively overlapped Bernoulli distributions have entropy concave in their parameter. Amir asks more generally whether the entropy of a positively weighted sum of independent Bernoulli$(p)$ variables is concave in $p$, and proves this for at most three summands. We prove strict concavity for four, five and six summands. The entropy depends on the weights only through their entropy profile, the numbers of subsets of each size attaining each value of the sum. Every positive weight vector has an integer one with the same equalities and inequalities among subset sums, giving 23, 216 and 6,767 entropy profiles for four, five and six summands. Exact rational Bernstein enclosures prove negative curvature for each profile away from the endpoints, where an analytic estimate applies. We find the curvature's leading term at the endpoints for any number of summands, and bound it near them for three or more.
+J\"org Neunh\"auserer conjectures that recursively overlapped Bernoulli distributions have entropy concave in their parameter. Amir asks whether the entropy of a positively weighted sum of independent Bernoulli$(p)$ variables is concave in $p$, proving it for at most three summands. We prove strict concavity for four, five and six summands. The entropy depends on the weights only through their entropy profile, the numbers of subsets of each size with each sum. Every positive weight vector has an integer one with the same equalities and inequalities among subset sums; enumerating these, and for six summands the linear relations among the weights, gives 23, 216 and 6,767 entropy profiles. For each profile a rational certificate shows the entropy's second derivative negative away from the endpoints, where an analytic estimate applies. We find its leading term at the endpoints for any number of summands, and bound it near them for three or more.
 \end{abstract}
 
 \noindent\textit{Keywords:} Shannon entropy, weighted Bernoulli sums, entropy concavity, subset sums, rational certificates.\\
@@ -72,11 +72,11 @@ The positive-weight concavity question asks whether $F_w$ is concave for every $
 
 J\"org Neunh\"auserer~\cite{Neun} poses an entropy-concavity conjecture for finite distributions constructed by repeatedly placing two scaled copies of a probability vector with an overlap. The construction interpolates between a binomial law and a Bernoulli product law; its motivation includes random walks on self-similar graphs. Amir~\cite{Amir} gives the positive-weight formulation~\eqref{eq:sum}: the shifts between successive embeddings become the weights of independent bits. Integer weights include the recursive construction, and arbitrary positive real weights give a natural extension. Neunh\"auserer~\cite[Proposition~3.1]{Neun} treats the binomial and nonoverlapping extremes.
 
-Precisely, let $(a_n)$ be a strictly increasing sequence of integers with $a_1=2$, put $P_1(p)=(p,1-p)$ and $P_{n+1}(p)=p\mathcal L(P_n(p))+(1-p)\mathcal R(P_n(p))$, where $\mathcal L$ and $\mathcal R$ place a vector of length $a_n$ at the left and at the right end of a vector of length $a_{n+1}$. Neunh\"auserer~\cite[Conjecture~3.1]{Neun} conjectures that the entropy of $P_n(p)$ is concave in $p\in[0,1]$ for every such sequence and every $n$. The law $P_n(p)$ is that of $\sum_{i=1}^n d_iB_i$ with $d_1=1$, $d_i=a_i-a_{i-1}$ and independent Bernoulli$(1-p)$ variables $B_i$. Since $p\mapsto1-p$ preserves concavity, the conjecture for a given $n$ is the case $m=n$ of the positive-weight concavity question for integer weights one of which equals $1$.
+Precisely, let $(a_n)$ be a strictly increasing sequence of integers with $a_1=2$, put $P_1(p)=(p,1-p)$ and $P_{n+1}(p)=p\mathcal L(P_n(p))+(1-p)\mathcal R(P_n(p))$, where $\mathcal L$ and $\mathcal R$ place a vector of length $a_n$ at the left and at the right end of a vector of length $a_{n+1}$. Neunh\"auserer~\cite[Conjecture~3.1]{Neun} conjectures that the entropy of $P_n(p)$ is concave in $p\in[0,1]$ for every such sequence and every $n$. The law $P_n(p)$ is that of $\sum_{i=1}^n d_iB_i'$ with $d_1=1$, $d_i=a_i-a_{i-1}$ and independent Bernoulli$(1-p)$ variables $B_i'$. Since $p\mapsto1-p$ preserves concavity, the conjecture for a given $n$ is the case $m=n$ of the positive-weight concavity question for integer weights one of which equals $1$.
 
 Amir~\cite{Amir} proves that $F_w$ is strictly concave for $m\le3$; the case $m=1$ is the binary entropy function. For $m=4$ he sorts weight vectors by which subset sums coincide, which up to permutation of the weights gives $23$ classes, checks all of them numerically and proves seven analytically. Three things stand in the way of continuing this case analysis. The weights are real, and rounding them can separate subset sums that are equal, which changes the law of $S_w$. The number of cases grows: $F_w$ depends on $w$ only through its entropy profile, the multiset of vectors $(N_{s,0},\ldots,N_{s,m})$, one for each value $s$ of $S_w$, where $N_{s,k}$ is the number of $k$-element subsets of the weights with sum $s$, and there are $23$ entropy profiles for $m=4$, in bijection with Amir's classes, $216$ for $m=5$ and $6{,}767$ for $m=6$. And interval enclosures of $F_w''$ need a positive lower bound for the probability of every value $s$ of $S_w(p)$, and for $s\ne0$ this probability vanishes at $p=0$; indeed $pF_w''(p)\to-m$ as $p\downarrow0$ (\cref{thm:limit}).
 
-The first obstruction is removed by a vertex of the polyhedron cut out by the signs of all differences of two subset sums. Cramer's rule and Hadamard's inequality bound its coordinates, so every positive $w$ has an integer vector $v$ with $1\le v_i\le\lfloor m^{m/2}\rfloor$ and the same sign, zero included, for every such difference (\cref{lem:representative}). The integer-weight method of Saburo Muroga, Iwao Toda and Satoru Takasu~\cite{MTT}, as described by Rocco Servedio~\cite{Servedio}, keeps the strict inequalities; this lemma keeps the equalities as well, and with them the entropy profile. For $m=6$ the integer box is too large, and we enumerate instead relation spaces, the relation space of $w$ being the linear span of the vectors $a\in\{-1,0,1\}^6$ with $a\cdot w=0$; up to coordinate permutation there are $23{,}273$ relation spaces whose orthogonal complement meets the open positive orthant. On each entropy profile, exact rational Bernstein enclosures give $F_w''<0$ on $[\delta_m,1/2]$, where $\delta_4=2^{-12}$, $\delta_5=2^{-14}$ and $\delta_6=2^{-15}$. Near $p=0$ the only subsets with sum equal to the smallest weight are singletons, and for every $m\ge3$ this gives
+The first obstruction is removed by a vertex of the polyhedron cut out by the signs of all differences of two subset sums. Cramer's rule and Hadamard's inequality bound its coordinates, so every positive $w$ has an integer vector $v$ with $1\le v_i\le\lfloor m^{m/2}\rfloor$ and the same sign, zero included, for every such difference (\cref{lem:representative}). The integer-weight method of Saburo Muroga, Iwao Toda and Satoru Takasu~\cite{MTT}, as described by Rocco Servedio~\cite{Servedio}, keeps the strict inequalities; this lemma keeps the equalities as well, and with them the entropy profile. For $m=6$ the integer box is too large, and we enumerate instead relation spaces, the relation space of $w$ being the linear span of the vectors $a\in\{-1,0,1\}^6$ with $a\cdot w=0$; up to coordinate permutation there are $23{,}273$ relation spaces whose orthogonal complement meets the open positive orthant. On each entropy profile, an exact rational certificate built from Bernstein enclosures gives $F_w''<0$ on $[\delta_m,1/2]$, where $\delta_4=2^{-12}$, $\delta_5=2^{-14}$ and $\delta_6=2^{-15}$. Near $p=0$ the only subsets with sum equal to the smallest weight are singletons, and for every $m\ge3$ this gives
 \[
  pF_w''(p)\le 4m^2(m-1)\,p\log\frac1p-(1-p)^{m-3}(1-mp)^2\qquad\Bigl(0<p\le\frac12\Bigr),
 \]
@@ -371,7 +371,7 @@ Expanding $2\int_0^z(1-u^2)^{-1}\,du$ and bounding the remaining positive series
 \]
 Here $0\le z<1/3$. The same formula at $y=2$, where $z=1/3$, encloses $\log2$. Adding $\nu\log2$, with interval endpoints reversed for this product when $\nu<0$, encloses $\log x$. Every operation is rational.
 
-\subsection{Curvature bounds and the complete partitions}\label{sec:partitions}
+\subsection{Bounds on $F_w''$ and the complete partitions}\label{sec:partitions}
 
 Suppose that the polynomial enclosures on $I$ are
 \[
@@ -388,7 +388,7 @@ Set
 \end{align*}
 The contribution of this fibre to~\eqref{eq:curvature} is at most $-T_--V_-/q_+$. Let $U_I$ denote the sum of these bounds over all fibres; it is a rational number with $F_w''(p)\le U_I$ for every $p\in I$. If a positive lower bound for some $q_s$ is unavailable, subdivide the cell.
 
-Starting at $[\delta_m,1/2]$, bisect a cell until $U_I$ rounded upward to a multiple of $10^{-6}$ is strictly negative. For six summands, round each fibre's contribution upward to a multiple of $2^{-40}$ before summing, and then round the sum upward to a multiple of $10^{-6}$. Both roundings preserve the upper inequality. Each accepted cell stores its rational endpoints and its strictly negative rounded upper bound. The programs \texttt{certify.py} and \texttt{certify\_six.py} print the profile counts, cell counts, and largest stored upper bounds in \cref{tab:certificates}. The program \texttt{replay.py} performs these checks for four and five summands; \texttt{replay\_six.py} does so for six summands. Each reconstructs the representative profiles, verifies every stored bound, and checks that every partition is consecutive, without gaps, from $\delta_m$ to $1/2$.
+Starting at $[\delta_m,1/2]$, bisect a cell until $U_I$ rounded upward to a multiple of $10^{-6}$ is strictly negative. For six summands, round each fibre's contribution upward to a multiple of $2^{-40}$ before summing, and then round the sum upward to a multiple of $10^{-6}$. Both roundings preserve the upper inequality. Each accepted cell stores its rational endpoints and its strictly negative rounded upper bound. A certificate for an entropy profile is such a partition of $[\delta_m,1/2]$ into rational cells $I$, each with a rational $U_I<0$ bounding $F_w''$ on $I$. The programs \texttt{certify.py} and \texttt{certify\_six.py} print the profile counts, cell counts, and largest stored upper bounds in \cref{tab:certificates}. The program \texttt{replay.py} performs these checks for four and five summands; \texttt{replay\_six.py} does so for six summands. Each reconstructs the representative profiles, verifies every stored bound, and checks that every partition is consecutive, without gaps, from $\delta_m$ to $1/2$.
 
 \begin{proposition}\label{prop:certificates}
 For each entropy profile of a sum of four independent Bernoulli$(p)$ variables with positive real weights, there is a partition of $[1/4096,1/2]$ into closed rational cells and, for each cell $I$, a rational number $U_I<0$ with $F_w''(p)\le U_I$ for all $p\in I$. The corresponding assertions hold for five variables on $[1/16384,1/2]$ and six variables on $[1/32768,1/2]$. Here Shannon entropy uses natural logarithms. The complete partitions have the counts and bounds in \cref{tab:certificates}.
@@ -459,14 +459,14 @@ Let $m\ge1$ and let $w_1,\ldots,w_m$ be positive real numbers. For independent B
 \]
 \end{theorem}
 \begin{proof}
-Fix the weights. For each nonempty subset-sum fibre let $k_s\ge1$ be its minimum subset cardinality and let $c_s$ be the number of subsets in that fibre of cardinality $k_s$. Its probability polynomial has expansion
+Fix the weights. For each fibre of $s\ne0$ let $k_s\ge1$ be its minimum subset cardinality and let $c_s$ be the number of subsets in that fibre of cardinality $k_s$. Its probability polynomial has expansion
 $q_s(p)=c_sp^{k_s}+O(p^{k_s+1})$. If $k_s=1$, then
 \[
  p\frac{(q_s')^2}{q_s}\to c_s;
 \]
-if $k_s\ge2$, the same expression is $O(p^{k_s-1})$ and tends to zero. Positivity isolates the empty fibre, whose probability is $(1-p)^m$; its contribution to this limit is zero. The coefficients $c_s$ of the fibres with $k_s=1$ total $m$, since every singleton belongs to exactly one such fibre.
+if $k_s\ge2$, the same expression is $O(p^{k_s-1})$ and tends to zero. Positivity isolates the fibre of $0$, whose probability is $(1-p)^m$; its contribution to this limit is zero. The coefficients $c_s$ of the fibres with $k_s=1$ total $m$, since every singleton belongs to exactly one such fibre.
 
-For $k_s=1$, $q_s''=O(1)$, so $pq_s''\log q_s=O(p|\log p|)\to0$. For $k_s\ge2$ it is $O(p^{k_s-1}|\log p|)\to0$. For the empty fibre, $q_s''$ is bounded and $\log q_s=O(p)$, so its term also vanishes. Applying these limits to the finite sum \eqref{eq:curvature} gives $-m$. Complement symmetry gives the other endpoint.
+For $k_s=1$, $q_s''=O(1)$, so $pq_s''\log q_s=O(p|\log p|)\to0$. For $k_s\ge2$ it is $O(p^{k_s-1}|\log p|)\to0$. For the fibre of $0$, $q_s''$ is bounded and $\log q_s=O(p)$, so its term also vanishes. Applying these limits to the finite sum \eqref{eq:curvature} gives $-m$. Complement symmetry gives the other endpoint.
 \end{proof}
 
 \begin{theorem}\label{thm:blocks}
@@ -523,18 +523,18 @@ Using this identity and its reflection, together with $\log(1+x)<x$ for $x>0$, y
    +n\frac{1-p^{n-1}}{1-p}\\
  &=-n\left(\frac{(1-p)^{n-1}}p+\frac{p^{n-1}}{1-p}\right)<0.
 \end{align*}
-For $n=1$ the derivative is $h''=-1/[p(1-p)]$. Summing over the blocks proves strict negative curvature. Continuity at the endpoints gives strict concavity on the closed interval as in \cref{sec:proof}. For two weight values, an irrational ratio excludes every nonzero integer relation, proving the last assertion.
+For $n=1$ the derivative is $h''=-1/[p(1-p)]$. Summing over the blocks gives $F_w''<0$. Continuity at the endpoints gives strict concavity on the closed interval as in \cref{sec:proof}. For two weight values, an irrational ratio excludes every nonzero integer relation, proving the last assertion.
 \end{proof}
 
 \begin{remark}\label{rem:hypotheses}
-The conclusion fails for a general Boolean statistic of the bits, for unequal parameters and for dependent bits with equal marginals. The indicator that four iid Bernoulli$(p)$ bits are all equal has success probability $p^4+(1-p)^4$. At $p=1/2$ this probability and its first two derivatives are $1/8$, $0$, $6$, so its entropy curvature is $6\log7>0$. Thus a general Boolean statistic need not have concave entropy.
+The conclusion fails for a general Boolean statistic of the bits, for unequal parameters and for dependent bits with equal marginals. The indicator that four iid Bernoulli$(p)$ bits are all equal has success probability $p^4+(1-p)^4$. At $p=1/2$ this probability and its first two derivatives are $1/8$, $0$, $6$, so the second derivative of its entropy is $6\log7>0$. Thus a general Boolean statistic need not have concave entropy.
 
 The heterogeneous example of the MathOverflow user ssss nnnn, given in a comment on Amir's answer and recorded there~\cite{Amir}, has weights $(1,1,2)$ and parameters $(1/5+t,1/5-t,1/2)$. The probabilities at support values $0,1,2,3,4$ are
 \[
  \left(\frac8{25}-\frac{t^2}2,\frac4{25}+t^2,
  \frac{17}{50}-t^2,\frac4{25}+t^2,\frac1{50}-\frac{t^2}2\right).
 \]
-Their first derivatives vanish at zero; substitution of their second derivatives $(-1,2,-2,2,-1)$ gives entropy curvature $\log(289/256)>0$.
+Their first derivatives vanish at zero; substitution of their second derivatives $(-1,2,-2,2,-1)$ gives the second derivative $\log(289/256)>0$ of the entropy.
 
 For dependent bits with common marginal parameter $p=1/2+t$, take
 \[
@@ -595,6 +595,7 @@ $H$ & Shannon entropy, with natural logarithms & \eqref{eq:sum}\\
 $S_w(p),F_w(p)$ & weighted sum and its entropy & \eqref{eq:sum}\\
 $[m]$ & $\{1,\ldots,m\}$ & \cref{sec:setup}\\
 $\mathcal S_w,s$ & set of subset sums and one of its elements & \cref{sec:setup}\\
+$\mathcal S_v$ & set of subset sums of a representative $v$ & \cref{tab:four}\\
 $A,k$ & a subset of $[m]$ and its cardinality & \eqref{eq:counts}\\
 $N_{s,k}$ & number of size-$k$ subsets with sum $s$ & \eqref{eq:counts}\\
 $q_s$ & probability polynomial at $s$ & \eqref{eq:counts}\\
@@ -630,17 +631,21 @@ $d_-,d_+$ & lower and upper first-derivative enclosures & \cref{sec:partitions}\
 $e_-,e_+$ & lower and upper second-derivative enclosures & \cref{sec:partitions}\\
 $\lambda_-,\lambda_+$ & lower and upper logarithm enclosures & \cref{sec:partitions}\\
 $T_-,V_-$ & lower bounds for $q_s''\log q_s$ and $(q_s')^2$ & \cref{sec:partitions}\\
-$U_I$ & rational upper bound for entropy curvature on $I$ & \cref{sec:partitions}\\
+$U_I$ & rational upper bound for $F_w''$ on $I$ & \cref{sec:partitions}\\
 $t$ & perturbation parameter in the counterexamples & \cref{rem:hypotheses}\\
 $\eta_m$ & all-dimension endpoint cutoff $1/(64m^4)$ & \cref{thm:allendpoint}\\
 $k_s,c_s$ & minimum fibre cardinality and leading count & proof of \cref{thm:limit}\\
 $a_j,r_j,\ell$ & block values, multiplicities and number of blocks & \cref{thm:blocks}\\
+$n,a_n,P_n$ & level, lengths and law of Neunh\"auserer's construction & \cref{sec:intro}\\
+$\mathcal L,\mathcal R$ & placement of a vector at the left and right end & \cref{sec:intro}\\
+$d_i,B_i'$ & weights $a_i-a_{i-1}$ and Bernoulli$(1-p)$ bits of that construction & \cref{sec:intro}\\
+$S,\eps$ & support of an extreme ray and a small positive number & proof of \cref{lem:positive}\\
 $d,K_j$ & bounded integer relation and binomial block count & \cref{thm:blocks}\\
 $h,g,Y,Z$ & binary entropy, factorial function and auxiliary binomial variables & proof of \cref{thm:blocks}\\
 $\mathbb E$ & expectation & proof of \cref{thm:blocks}\\
 $i,j,k,h,\ell$ & integer indices with the ranges specified locally & \cref{sec:intro}\\
 $\#E,|E|$ & cardinality of a finite set $E$ & \eqref{eq:counts}\\
-$\binom dk$ & binomial coefficient & \cref{tab:profiles}\\
+$\binom dk$ & binomial coefficient & \cref{sec:intro}\\
 $u$ & integration variable for the logarithm series & \cref{sec:logs}\\
 $\mathbf 1_A$ & indicator vector of a subset $A\subseteq[m]$ & proof of \cref{lem:relations}\\
 \end{longtable}
