@@ -104,7 +104,7 @@ has strictly negative second derivative on $(0,1)$ and is strictly concave on $[
 
 Lawrence Shepp and Ingram Olkin~\cite{SO} formulate the entropy-concavity problem for sums with unit weights. Erwan Hillion and Oliver Johnson~\cite{HJ} prove joint concavity in the individual Bernoulli parameters in that setting. Their theorem does not apply to integer weights: $w_iB_i$ with an integer $w_i>1$ is not a sum of $w_i$ independent unit-weight Bernoulli variables. Jiange Li~\cite{Li} compares R\'enyi entropies of different orders for weighted Bernoulli sums. Haoran Wang~\cite{Wang} studies R\'enyi and Tsallis concavity for unit-weight sums. None of these results gives concavity of the Shannon entropy of a weighted sum in a common parameter.
 
-Hadamard's inequality bounds the determinants in \cref{lem:representative}~\cite{Matrix}. For six summands, divisibility of determinants of matrices with entries in $\{-1,1\}$ by $2^{m-1}$ lowers the coordinate bound to $192$ (\cref{cor:refinement}), but the nondecreasing vectors in $\{1,\ldots,192\}^6$ still number $\binom{197}{6}$, and the relation-space enumeration replaces the listing of these integer vectors. The hyperplanes $a\cdot w=0$ with $a\in\{-1,0,1\}^m$ form the arrangement of comparative probability theory: Ilya Chevyrev, Dominic Searles and Arkadii Slinko~\cite[Section~2.4]{CSS} describe it in the positive simplex, where weight vectors normalized to sum one lie. An entropy profile depends only on which of these hyperplanes contain $w$, so the relation spaces enumerated here are the orthogonal complements of the flats of that arrangement that meet the open positive orthant. The interval bounds use Sergei Bernstein's polynomial basis and Paul de Casteljau's subdivision algorithm, as presented by Rida Farouki~\cite{Farouki}, together with rational bounds for the logarithm. When the weights take values $\theta_1,\ldots,\theta_\ell$ with multiplicities $r_1,\ldots,r_\ell$ and the weighted sum determines how many Bernoulli variables of each weight succeed, the entropy is the sum of the entropies of $\operatorname{Bin}(r_j,p)$, and strict concavity for every number of summands follows from that of binomial entropy~\cite{SO,HJ} (\cref{thm:blocks}, a known consequence with an elementary proof). The case $\ell=1$ is the binomial law and the case $r_1=\cdots=r_\ell=1$ is that of $2^m$ distinct subset sums, which contain the two cases of~\cite[Proposition~3.1]{Neun}.
+Hadamard's inequality bounds the determinants in \cref{lem:representative}~\cite{Matrix}. For six summands, divisibility of determinants of matrices with entries in $\{-1,1\}$ by $2^{m-1}$ lowers the coordinate bound to $192$ (\cref{cor:refinement}), but the nondecreasing vectors in $\{1,\ldots,192\}^6$ still number $\binom{197}{6}$, and the enumeration of relation spaces replaces the listing of these integer vectors. The hyperplanes $a\cdot w=0$ with $a\in\{-1,0,1\}^m$ form the arrangement of comparative probability theory: Ilya Chevyrev, Dominic Searles and Arkadii Slinko~\cite[Section~2.4]{CSS} describe it in the positive simplex, where weight vectors normalized to sum one lie. An entropy profile depends only on which of these hyperplanes contain $w$, so the relation spaces enumerated here are the orthogonal complements of the flats of that arrangement that meet the open positive orthant. The interval bounds use Sergei Bernstein's polynomial basis and Paul de Casteljau's subdivision algorithm, as presented by Rida Farouki~\cite{Farouki}, together with rational bounds for the logarithm. When the weights take values $\theta_1,\ldots,\theta_\ell$ with multiplicities $r_1,\ldots,r_\ell$ and the weighted sum determines how many Bernoulli variables of each weight succeed, the entropy is the sum of the entropies of $\operatorname{Bin}(r_j,p)$, which are concave~\cite{SO,HJ}; \cref{thm:blocks}, a known consequence with an elementary proof of the strict bound, gives strict concavity for every number of summands. The case $\ell=1$ is the binomial law and the case $r_1=\cdots=r_\ell=1$ is that of $2^m$ distinct subset sums, which contain the two cases of~\cite[Proposition~3.1]{Neun}.
 
 \section{Setup and notation}\label{sec:setup}
 
@@ -189,10 +189,10 @@ $4$ & $16$ & $3{,}876$ & $23$\\
 $5$ & $55$ & $5{,}006{,}386$ & $216$\\
 \bottomrule
 \end{tabular}
-\caption{Complete bounded integer enumeration. The vector count is $\binom{M_m+m-1}{m}$.}\label{tab:profiles}
+\caption{Listing of the integer vectors with coordinates at most $M_m$. The vector count is $\binom{M_m+m-1}{m}$.}\label{tab:profiles}
 \end{table}
 
-\Cref{tab:four} lists one positive integer vector for each four-summand entropy profile. Each vector has the smallest coordinate sum among the vectors of the bounded integer enumeration with its profile, and comes first in lexicographic order among those.
+\Cref{tab:four} lists one positive integer vector for each four-summand entropy profile. Each vector has the smallest coordinate sum among the listed integer vectors with its profile, and comes first in lexicographic order among those.
 
 \begin{table}[ht]
 \centering\small
@@ -224,12 +224,12 @@ A subspace spanned by ternary normals is called feasible if its orthogonal compl
 $(3^6-2\cdot2^6+1)/2=301$ elements.
 
 \begin{lemma}\label{lem:relations}
-For every positive real weight vector $w$ for $m$ summands, its subset-sum equalities are determined by the feasible relation space $L(w)$, of rank at most $m-1$. Conversely, every feasible space spanned by ternary normals is the relation space of a positive real vector. Starting with the zero space and adjoining each ternary normal to every feasible space, discarding infeasible extensions, reaches every such space. Retaining one subspace from each orbit under coordinate permutations reaches every orbit.
+For every positive real weight vector $w$ for $m$ summands, the feasible relation space $L(w)$ has rank at most $m-1$, and two subsets $A,C\subseteq[m]$ satisfy $\sum_{i\in A}w_i=\sum_{i\in C}w_i$ if and only if $\mathbf 1_A-\mathbf 1_C\in L(w)$. Conversely, every feasible space spanned by ternary normals is the relation space of a positive real vector. Starting with the zero space and adjoining each ternary normal to every feasible space, discarding infeasible extensions, reaches every such space. Retaining one subspace from each orbit under coordinate permutations reaches every orbit.
 \end{lemma}
 \begin{proof}
 For subsets $A,C\subseteq[m]$ with indicator vectors $\mathbf 1_A,\mathbf 1_C$, the equality $\sum_{i\in A}w_i=\sum_{i\in C}w_i$ is equivalent to $\mathbf 1_A-\mathbf 1_C\in L(w)$. A nonzero difference that vanishes on a positive vector has both signs, so one orientation is a ternary normal; the reverse implication follows from $L(w)\subseteq w^\perp$.
 
-For a feasible space $L$ spanned by ternary normals, the positive part of $L^\perp$ is nonempty and relatively open. For $a\in T_m\setminus L$, the hyperplane $a^\perp\cap L^\perp$ is proper. Avoiding these finitely many hyperplanes gives a positive vector with exactly the relations in $L$. A chain of ternary normals forming a basis of $L$ reaches $L$; each intermediate orthogonal complement contains the same positive vector. Finally, coordinate permutations preserve the set of ternary normals, feasibility and subset cardinalities. Extending one subspace from each orbit by every ternary normal therefore reaches every successor orbit.
+For a feasible space $L$ spanned by ternary normals, the positive part of $L^\perp$ is nonempty and relatively open. For $a\in T_m\setminus L$, the hyperplane $a^\perp\cap L^\perp$ is proper. Avoiding these finitely many hyperplanes gives a positive vector $w$ with $L(w)=L$. A chain of ternary normals forming a basis of $L$ reaches $L$; each intermediate orthogonal complement contains the same positive vector. Finally, coordinate permutations preserve the set of ternary normals, feasibility and subset cardinalities. Extending one subspace from each orbit by every ternary normal therefore reaches every successor orbit.
 \end{proof}
 
 The maximal minors $P_{\mathcal I}$ of an integer row basis of a rank-${\varrho}$ subspace, indexed by the ${\varrho}$-element coordinate subsets $\mathcal I$, determine the subspace up to a common nonzero factor. Dividing by their common divisor and making the first nonzero coordinate positive gives its primitive exterior coordinates; at rank zero the single coordinate is $1$. Adjoining a ternary normal takes an exterior product, which is zero exactly when the normal already belongs to the subspace. Coordinate permutations act by signed permutations of the minors, so the lexicographically least oriented vector determines one subspace from each orbit. The maximum absolute primitive coordinates at ranks zero through five are $1,1,2,4,12,30$.
@@ -263,14 +263,14 @@ $4$ & $10{,}334$ & $2{,}948$\\
 $5$ & $11{,}219$ & $6{,}767$\\
 \bottomrule
 \end{tabular}
-\caption{The six-summand enumeration: $23{,}273$ relation-space orbits and $6{,}767$ entropy profiles.}\label{tab:six}
+\caption{The enumeration of relation spaces for six summands: $23{,}273$ relation-space orbits and $6{,}767$ entropy profiles.}\label{tab:six}
 \end{table}
 
 \begin{proposition}\label{prop:sixprofiles}
 The sums of six independent Bernoulli$(p)$ variables with positive real weights have exactly $6{,}767$ entropy profiles. Each profile is the entropy profile of a positive integer weight vector with coordinates at most $36$.
 \end{proposition}
 \begin{proof}
-By \cref{lem:relations,lem:positive}, the enumeration that starts at the zero space and adjoins ternary normals lists every relation space $L(w)$, $w\in(0,\infty)^6$, up to permutation of coordinates. There are $23{,}273$ of them, by rank as in \cref{tab:six}, and they have $6{,}767$ distinct entropy profiles. One positive integer vector with coordinates at most $36$ for each of these profiles is in the file \texttt{profiles\_six\_compact.json} of the repository (Code and data availability). Such a vector need not preserve the signs of all differences of two subset sums of another vector with that profile.
+By \cref{lem:relations,lem:positive}, the enumeration of relation spaces, which starts at the zero space and adjoins ternary normals, lists every relation space $L(w)$, $w\in(0,\infty)^6$, up to permutation of coordinates. There are $23{,}273$ of them, by rank as in \cref{tab:six}, and they have $6{,}767$ distinct entropy profiles. One positive integer vector with coordinates at most $36$ for each of these profiles is in the file \texttt{profiles\_six\_compact.json} of the repository (Code and data availability). Such a vector need not preserve the signs of all differences of two subset sums of another vector with that profile.
 \end{proof}
 
 
@@ -454,7 +454,7 @@ For each entropy profile of \cref{tab:profiles,tab:six}, bisection as in \cref{s
 \subsection{Proof of the main theorem}\label{sec:proof}
 
 \begin{proof}[Proof of \cref{thm:main}]
-Fix $m\in\{4,5,6\}$ and a positive real vector $w$. For $m=4,5$, \cref{lem:representative} and the bounded integer enumeration show that the entropy profile of $w$ is one of the profiles counted in \cref{tab:profiles}. For $m=6$, \cref{prop:sixprofiles} shows that it is one of the profiles counted in \cref{tab:six}. The vector that realizes this profile in the enumeration has the same polynomials $q_s$ in~\eqref{eq:counts}, with multiplicities, as $w$ for all $p$, hence the same entropy function.
+Fix $m\in\{4,5,6\}$ and a positive real vector $w$. For $m=4,5$, \cref{lem:representative} and the listing of integer vectors show that the entropy profile of $w$ is one of the profiles counted in \cref{tab:profiles}. For $m=6$, \cref{prop:sixprofiles} shows that it is one of the profiles counted in \cref{tab:six}. The vector that realizes this profile in the enumeration has the same polynomials $q_s$ in~\eqref{eq:counts}, with multiplicities, as $w$ for all $p$, hence the same entropy function.
 By \cref{cor:endpoint}, $F_w''<0$ on $(0,\delta_m]$. By \cref{prop:certificates}, $F_w''<0$ on $[\delta_m,1/2]$. Complement symmetry~\eqref{eq:symmetry} gives $F_w''<0$ on $(0,1)$.
 
 A continuous function on $[0,1]$ with strictly negative second derivative on $(0,1)$ is strictly concave on the closed interval.
