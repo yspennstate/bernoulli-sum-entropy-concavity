@@ -5,7 +5,7 @@ import re
 import sys
 
 # TeX/LaTeX primitives and commands supplied by the declared packages.
-CORE = set('cap cdots downarrow eta infty lim longrightarrow mapsto ne perp setminus sim uparrow '.split()) | set('documentclass usepackage newcommand renewcommand newtheorem begin end '
+CORE = set('chi kappa omega phi varrho mathfrak mathsf gamma theta tau sigma iota xi zeta dot ddot texorpdfstring cap cdots downarrow eta infty lim longrightarrow mapsto ne perp setminus sim uparrow '.split()) | set('documentclass usepackage newcommand renewcommand newtheorem begin end '
            'title author date maketitle thispagestyle pagestyle setlength '
            'parindent parskip emergencystretch textwidth thepage headrulewidth '
            'section subsection appendix label ref pageref cite bibitem '

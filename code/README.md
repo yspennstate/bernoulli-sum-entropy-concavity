@@ -90,3 +90,15 @@ The bounded enumerator prints `m=4 bound=16 vectors=3876 profiles=23` and `m=5 b
 `certify.py` replaces the four- and five-summand certificate JSON files and prints `CERTIFICATE PASS` with the table above. The six-summand generator reads the local orbit profiles and writes a new directory, refusing to append to an existing certificate. It uses local `bernstein_bounds.py`, 14 logarithm terms, outward fibre rounding at 2^-40, bisection and final upward rounding to millionths. Its final JSON summary has `complete: true`, `profiles_total: 6767`, `cells: 130172`, `largest_upper_bound: -1/20000`. Regenerated certificate records match the supplied records exactly; only timing metadata varies. The provided `certificate_six.jsonl` is approximately 10 MB, so no xz unpacking is needed.
 
 Saved `.out`, `.resources` and result JSON files record the executed checks. Fractions and integer comparisons establish every proof inequality; floating-point values are used only for timings. The programs neither use multiple workers nor start background services.
+
+## Encodings and subdivision identities
+
+For four and five summands a count vector is encoded as sum_k N_{s,k} 64^k. No carry occurs because a fibre contains at most 32 subsets. Sorting these encodings preserves the multiset of count vectors. For six summands each count is at most binomial(6,k), hence at most 20; its base-64 profile encoding fits in an unsigned 64-bit integer. Before extension the largest absolute primitive exterior coordinate is 30, and an unnormalized extension coordinate is a sum of at most six such values, so its absolute value is at most 180.
+
+The polar-form restriction used by `replay.py` averages the Bernstein coefficient c_k over a total of d independent Bernoulli variables, with d-j parameters equal to alpha and j equal to beta. Multiaffinity gives the coefficient at index j on [alpha,beta]. The monomial-to-Bernstein conversion used by `replay_six.py` is
+
+```text
+t^j = sum_{k=j}^d [binomial(k,j)/binomial(d,j)] binomial(d,k) t^k (1-t)^(d-k).
+```
+
+It follows from binomial(d,k) binomial(k,j) = binomial(d,j) binomial(d-j,k-j) and the binomial theorem.
