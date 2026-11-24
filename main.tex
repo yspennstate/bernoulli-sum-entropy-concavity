@@ -55,7 +55,7 @@
 \thispagestyle{fancy}
 
 \begin{abstract}
-J\"org Neunh\"auserer conjectures that the entropy of a recursively overlapped Bernoulli distribution is concave in its parameter. Amir asks whether the entropy of $\sum_{i\le m}w_iB_i$, with positive real weights $w_i$ and independent Bernoulli$(p)$ variables $B_i$, is concave in $p$, and proves that it is for $m\le3$. We prove strict concavity for $m=4,5,6$; with Amir's result this gives Neunh\"auserer's conjecture for the first six levels of the recursion. Every positive weight vector has an integer vector with coordinates at most $\lfloor m^{m/2}\rfloor$ and the same sign, zero included, of every difference of two subset sums, and the entropy depends on the weights through one of $23$, $216$ and $6{,}767$ cases for $m=4,5,6$. For $m=6$ the cases are found from the spans of the vectors $a\in\{-1,0,1\}^6$ with $a\cdot w=0$, of which there are $23{,}273$ up to permutation of the coordinates. For each case the interval $[\delta_m,1/2]$, with $\delta_4=2^{-12}$, $\delta_5=2^{-14}$ and $\delta_6=2^{-15}$, is covered by finitely many intervals with rational endpoints, on each of which the second derivative has a negative rational upper bound. On $(0,\delta_m]$ the second derivative is negative by an inequality valid for every $m\ge3$, which also shows that it is less than $-1/(2p)$ for $0<p\le1/(64m^4)$. For every $m$, $p$ times the second derivative tends to $-m$ as $p\downarrow0$.
+J\"org Neunh\"auserer conjectures that the entropy of a recursively overlapped Bernoulli distribution is concave in its parameter. Amir asks whether the entropy of $\sum_{i\le m}w_iB_i$, with positive real weights $w_i$ and independent Bernoulli$(p)$ variables $B_i$, is concave in $p$, and proves that it is for $m\le3$. We prove strict concavity for $m=4,5,6$; with Amir's result this gives Neunh\"auserer's conjecture for the first six levels of the recursion. The entropy depends on the weights only through which differences of two subset sums vanish, and this leaves $23$, $216$ and $6{,}767$ cases for $m=4,5,6$; for $m=6$ they come from $23{,}273$ spans of vanishing relations, up to permutation of the weights. For each case an interval $[\delta_m,1/2]$, with $2^{-15}\le\delta_m\le2^{-12}$, is covered by finitely many intervals with rational endpoints, on each of which the second derivative has a negative rational upper bound. On $(0,\delta_m]$ the second derivative is negative by an inequality valid for every $m\ge3$. For every $m$, $p$ times the second derivative tends to $-m$ as $p\downarrow0$.
 \end{abstract}
 
 \noindent\textit{Keywords:} Shannon entropy, weighted Bernoulli sums, entropy concavity, subset sums, rational certificates.\\
@@ -566,7 +566,7 @@ The \LaTeX\ source, the complete entropy profiles, the rational certificates, an
 The $216$ entropy profiles for $m=5$ are listed with their certificates in the repository. The programs \texttt{certify.py} and \texttt{certify\_six.py} produce the rational partitions and upper bounds. The programs \texttt{replay.py} and \texttt{replay\_six.py} reconstruct the entropy profiles, establish each upper bound and the endpoint constants by rational arithmetic, and establish complete coverage of $[\delta_m,1/2]$. The repository's code README gives the data encodings and the roles of the enumeration and verification programs.
 
 \section*{Declaration of generative AI and AI-assisted technologies}
-Codex (OpenAI) found the finite reductions and computed the certificates for four, five and six summands; a second Codex run checked every reduction and certificate with its own code. Claude (Anthropic) checked and edited the text. The work rests on the conjecture of Neunh\"auserer~\cite{Neun}, the formulation and small cases of Amir~\cite{Amir}, the unit-weight theory of Shepp, Olkin, Hillion and Johnson~\cite{SO,HJ} and the integer-weight method of Muroga, Toda and Takasu~\cite{MTT} in the account of Servedio~\cite{Servedio}, the determinant estimates of Ehlich and Wojtas~\cite{Ehlich,Wojtas}, the arrangement of Chevyrev, Searles and Slinko~\cite{CSS}, and the Bernstein-basis account of Farouki~\cite{Farouki}; the certificates for four to six summands and the endpoint theorems are new. The author selected the problem. The author directed the work and is responsible for the content of the paper and for decisions concerning its dissemination.
+Codex (OpenAI) proposed the finite reductions and computed the certificates for four, five and six summands; a second Codex run checked every reduction and certificate with separate code. Claude (Anthropic) checked and edited the text. The author selected the problem, directed the work, and is responsible for the content of the paper and for decisions concerning its dissemination.
 
 \appendix
 \section{Notation}\label{app:notation}
@@ -667,11 +667,11 @@ $t$ & perturbation parameter in the counterexamples & \cref{rem:hypotheses}\\
 
 \bibitem{Wojtas} M.~Wojtas, On Hadamard's inequality for the determinants of order non-divisible by 4, \emph{Colloquium Mathematicum} \textbf{12} (1964), no.~1, 73--83, doi:10.4064/cm-12-1-73-83.
 
-\bibitem{MathBrainRepo} Y.~Shmalo, \emph{Math Brain: public snapshot, code and tests}, 2026, \url{https://github.com/yspennstate/math-brain-public}.
+\bibitem{MathBrainRepo} Y.~Shmalo, \emph{Math Brain: public snapshot, code and tests}, 2026, \url{https://github.com/yspennstate/math-brain-public/tree/5427734deee9be643d6dfbdd5e7d4baeeefe4a4a}.
 
-\bibitem{MathBrainPaper} Y.~Shmalo, \emph{Math Brain: shared, auditable memory for multi-agent mathematical research}, October 2026, \url{https://github.com/yspennstate/math-brain-public/tree/main/papers/math-brain-2026-10-24}.
+\bibitem{MathBrainPaper} Y.~Shmalo, \emph{Math Brain: shared, auditable memory for multi-agent mathematical research}, October 2026, doi:10.5281/zenodo.24150837, \url{https://github.com/yspennstate/math-brain-public/tree/5427734deee9be643d6dfbdd5e7d4baeeefe4a4a/papers/math-brain-2026-10-24}.
 
-\bibitem{BrainFramework} Y.~Shmalo, \emph{Brain Framework}, public software repository, 2026, \url{https://github.com/yspennstate/brain-framework-public}.
+\bibitem{BrainFramework} Y.~Shmalo, \emph{Brain Framework}, public software repository, 2026, \url{https://github.com/yspennstate/brain-framework-public/tree/46b935d26d5a2893f7790b60466387dd8da47ef5}.
 
 \end{thebibliography}
 \end{document}
