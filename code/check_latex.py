@@ -14,7 +14,7 @@ CORE = set('chi kappa omega phi varrho mathfrak mathsf gamma theta tau sigma iot
            'min max log det in subseteq ge le cdot ldots to longmapsto '
            'lfloor rfloor alpha beta delta ell lambda mu nu varepsilon bigotimes'.split())
 PACKAGES = {
-    'amsmath': set('numberwithin text operatorname eqref'.split()),
+    'amsmath': set('numberwithin text operatorname eqref widetilde'.split()),
     'amssymb': set('mathbb'.split()),
     'latex': set('mathcal'.split()),
     'amsthm': set('theoremstyle'.split()),
