@@ -11,6 +11,7 @@
 | Integer vector with the same sign, zero included, of every difference of two subset sums | Application proved here | Vertex of the polyhedron of admissible weights; Cramer's rule and Hadamard's inequality, as in Horn and Johnson |
 | Convenient comparison bound 192 for six weights | Classical determinant method applied here | Sign-determinant divisibility and Hadamard's inequality |
 | Stronger comparison bound 160 for six weights | Known determinant bound applied here | Hartmut Ehlich and M. Wojtas (1964) |
+| Hyperplane arrangement of comparative probability in the simplex | Known | Ilya Chevyrev, Dominic Searles and Arkadii Slinko, Order 30 (2013), Section 2.4 |
 | Bernstein coefficient bounds and de Casteljau subdivision | Known methods | Sergei Bernstein and Paul de Casteljau; account by Rida Farouki (2012) |
 | Complete strict-concavity theorem for four and five positive weights | New result in this paper | Complete enumeration and 329 / 3,757 rational cells |
 | Complete strict-concavity theorem for six positive weights | New result in this paper | Enumeration of relation spaces and 130,172 rational cells |
